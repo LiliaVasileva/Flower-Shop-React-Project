@@ -1,5 +1,5 @@
 const express = require("express");
-// const routers = require('./routes');
+const routers = require('./routes');
 const handlebars = require('express-handlebars');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -20,4 +20,4 @@ app.use(routers);
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27017/flowers');
 
-app.listen(8000, () => console.log("Server is listening on port 3000 ..."))
+app.listen(8000, () => console.log("Server is listening on port 8000 ..."))
