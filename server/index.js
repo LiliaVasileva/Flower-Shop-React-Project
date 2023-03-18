@@ -1,10 +1,9 @@
 const express = require("express");
 const routers = require('./routes');
-const handlebars = require('express-handlebars');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
-// const { authentication } = require('./middleware/authMiddleware');
+const { authentication } = require('./middlewares/authMiddleware');
 
 
 const app = express();

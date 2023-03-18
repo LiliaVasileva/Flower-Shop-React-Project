@@ -479,7 +479,7 @@ img.logo {
     height: 80vh;
 }
 
-#login .login__form .username {
+#login .login__form .email {
     display: block;
     width: 50vh;
     margin: 1rem;
