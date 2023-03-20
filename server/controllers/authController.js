@@ -22,11 +22,7 @@ router.post('/register', async (req, res) => {
 
   } catch (err) {
     return res
-      .status(400)
-      .render('auth/register', { error: getErrorMessage(err) });
-  }
-
-});
+      .status(400), { error: getErrorMessage(err)}}});
 
 router.get('/login', (req, res) => {
   res.render('auth/login');

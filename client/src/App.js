@@ -7,7 +7,6 @@ import HomePage from "./components/home-page/HomePage";
 import Login from "./components/login/Login";
 import Header from "./components/header/Header";
 import Contacts from "./components/contacts/Contacts";
-import Catalog from "./components/home-page/catalog/Catalog";
 import CatalogPage from "./components/catalog/CatalogPage";
 import Register from "./components/register/Register";
 
