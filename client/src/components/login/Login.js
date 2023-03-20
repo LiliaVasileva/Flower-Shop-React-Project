@@ -16,15 +16,11 @@ function Login () {
         const form = e.target;
         const formData = new FormData(form);
 
-        // Or you can work with it as a plain object:
         const formJson = Object.fromEntries(formData.entries());
-        fetch(`${baseUrl}/login`, { method: form.method, body: formJson });
-        console.log(formJson);
-    }
+
+
     const onLoginValueChange = (e) => {
         setLoginValues(state => ({...state, [e.target.name]: e.target.value}))
-        console.log(loginValues.email)
-        console.log(loginValues.password)
     }
 
 
@@ -45,7 +41,6 @@ function Login () {
             </div>
         </section>
     )
-
-}
+    }}
 
 export default Login;

@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
     const token = await authService.register(email,firstName, lastName, password, repeatPassword );
 
     res.cookie('auth', token);
-    res.redirect('/');
+    res.status(200)
 
   } catch (err) {
     return res
