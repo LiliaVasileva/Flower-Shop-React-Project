@@ -508,6 +508,10 @@ img.logo {
 
 }
 
+#login .login__form .submit:hover{
+    cursor: pointer;
+}
+
 #login .login__form h3 {
     font-weight: lighter;
     font-size: 1.5rem;
@@ -515,6 +519,83 @@ img.logo {
 }
 
 #login .login__form h5 {
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+/* Register */
+#register {
+    background-color: var(--clr-light-grey);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#register h2 {
+    margin-bottom: 2rem;
+}
+
+#register .image__container .image {
+    height: 30vh;
+}
+
+
+#register .register__form .email {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+
+#register .register__form .password {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+#register .register__form .firstName {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+#register .register__form .lastName {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+
+#register .register__form .submit {
+    display: block;
+    width: 50vh;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background-color: var(--clr-dark-green);
+    border: 1px solid black;
+    margin-bottom: 0;
+    font-weight: lighter;
+
+}
+#register .register__form .submit:hover{
+    cursor: pointer;
+}
+
+#register .register__form h5 {
     font-weight: lighter;
     text-align: center;
     margin-top: 0;

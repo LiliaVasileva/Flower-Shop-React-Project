@@ -6,9 +6,14 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const {authentication} = require('./middlewares/authMiddleware');
+const  httpLogger = require('./utils/httpLogger');
+const logger = require('./utils/logger');
+
 const whitelist = ['http://localhost:3000']
 
 const app = express();
+
+app.use(httpLogger);
 
 app.engine('hbs', handlebars.engine({
         extname: 'hbs',
@@ -34,4 +39,4 @@ app.use(routers);
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27017/flowers');
 
-app.listen(8000, () => console.log("Server is listening on port 8000 ..."))
+app.listen(8000, () => logger.info("Server is listening on port 8000 ..."))
