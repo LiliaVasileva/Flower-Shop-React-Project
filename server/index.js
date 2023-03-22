@@ -9,7 +9,7 @@ const {authentication} = require('./middlewares/authMiddleware');
 const  httpLogger = require('./utils/httpLogger');
 const logger = require('./utils/logger');
 
-const whitelist = ['http://localhost:3000']
+const whitelist = ['http://localhost:3000', "http://localhost:8001"]
 
 const app = express();
 
@@ -39,4 +39,4 @@ app.use(routers);
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27017/flowers');
 
-app.listen(8000, () => logger.info("Server is listening on port 8000 ..."))
+app.listen(8001, () => logger.info("Server is listening on port 8001 ..."))
