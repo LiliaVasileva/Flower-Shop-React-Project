@@ -1,5 +1,5 @@
 import {Fragment, useState} from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 
 
 import * as authService from './services/authService'
@@ -15,6 +15,7 @@ import {AuthContext} from "./context/authContext";
 
 
 function App() {
+    const navigate = useNavigate()
     const [auth, setAuth] = useState({})
 
     const onLoginSubmit = async (data) => {
@@ -22,14 +23,24 @@ function App() {
         try {
             const result = await authService.login(data);
             setAuth(result)
+            console.log(result)
+            navigate('/catalog')
 
         } catch (error) {
             console.log(error)
         }
 
     }
+
+    const context = {
+        onLoginSubmit,
+        userId: auth._id,
+        token: auth.token,
+        email: auth.userEmail,
+        isAuthenticated: !!auth.token,
+    }
     return (
-        <AuthContext.Provider value={{onLoginSubmit}}>
+        <AuthContext.Provider value={context}>
             <Fragment>
                 <Header/>
                 <Navigation/>
