@@ -9,7 +9,7 @@ function CreateItem() {
     const {values, changeHandler, onSubmit} = useForm({
         name: '',
         price: '',
-        category: '',
+        category: 'default',
         description: '',
         image: ''
     }, onCreateItem);
@@ -21,7 +21,7 @@ function CreateItem() {
                 <input type="text" id="name" name="name" className="name" placeholder="Въведи име" value={values.name} onChange={changeHandler}/>
                 <input id="price" name="price"  className="price" placeholder="Въведи цена" onChange={changeHandler}/>
                 <select id="category" name="category" className="category">
-                    <option value="" selected disabled hidden>Избери Категория</option>
+                    <option value="default" selected disabled hidden>Избери Категория</option>
                     <option value="wedding">Сватба</option>
                     <option value="funeral">Погребения</option>
                     <option value="assortment">Асортимент</option>

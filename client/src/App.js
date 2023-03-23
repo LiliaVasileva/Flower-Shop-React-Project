@@ -3,6 +3,7 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 
 
 import * as authService from './services/authService'
+import * as itemService from './services/itemService'
 import Footer from "./components/footer/Footer";
 import Navigation from "./components/navigation/Navigation";
 import HomePage from "./components/home-page/HomePage";
@@ -45,7 +46,8 @@ function App() {
 
     const onCreateItem = async (values) => {
         try {
-            const result = await authService.create(values);
+
+            const result = await itemService.create(values, auth.token);
 
             console.log(result)
             navigate('/catalog');

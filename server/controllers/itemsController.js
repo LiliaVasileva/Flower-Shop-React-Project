@@ -7,8 +7,9 @@ const { getErrorMessage } = require('../utils/errorUtils');
 
 
 router.post('/create', isAuth, async (req, res) => {
-
+  console.log(req.body)
   const { name, price, category, description, image } = req.body;
+
   const userId = req.user._id;
 
   try {
@@ -23,6 +24,8 @@ router.post('/create', isAuth, async (req, res) => {
     return res.status(200).json('This is temp message')
 
   } catch (error) {
+
+    console.log(error)
     return res
       .status(404)
       .json({ error: getErrorMessage(error) });

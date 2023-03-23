@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const authController = require('./controllers/authController');
+const itemsController = require('./controllers/itemsController')
 
 
 
@@ -9,6 +10,7 @@ router.get('/', (req, res) => {
 })
 
 router.use(authController);
+router.use('/item',itemsController);
 
 
 module.exports = router;
