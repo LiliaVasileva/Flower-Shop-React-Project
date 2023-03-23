@@ -14,6 +14,7 @@ function Navigation() {
                 {isAuthenticated && (
                     <ul className="nav__item__ul">
                         <li><Link className="nav__item__li" to="/catalog">Каталог</Link></li>
+                        <li><Link className="nav__item__li" to="/flowers/create">Добави Асортимент</Link></li>
                         <li><Link className="nav__item__li" to="/contacts">Контакти</Link></li>
                         <li><Link className="nav__item__li" to="/logout">Изход</Link></li>
                     </ul>

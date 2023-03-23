@@ -4,6 +4,8 @@ import flowerImageThree from "./images/IMG_20211104_144540.jpg"
 import flowerImageForth from "./images/IMG_20211111_082126.jpg"
 
 function Item() {
+
+
     return (
         <section id="items">
             <article className="article-card">

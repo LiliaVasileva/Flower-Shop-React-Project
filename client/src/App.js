@@ -12,6 +12,7 @@ import Contacts from "./components/contacts/Contacts";
 import CatalogPage from "./components/catalog/CatalogPage";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
+import CreateItem from "./components/item-create/CreateItem";
 import {AuthContext} from "./context/authContext";
 
 
@@ -42,6 +43,18 @@ function App() {
         }
     }
 
+    const onCreateItem = async (values) => {
+        try {
+            const result = await authService.create(values);
+
+            console.log(result)
+            navigate('/catalog');
+        }catch (error) {
+            console.log(error);
+        }
+
+    }
+
     const onLogout = async () => {
 
         // // TODO server logout also
@@ -55,6 +68,7 @@ function App() {
         onLoginSubmit,
         onRegisterSubmit,
         onLogout,
+        onCreateItem,
         userId: auth._id,
         token: auth.token,
         email: auth.userEmail,
@@ -72,6 +86,7 @@ function App() {
                     <Route path="/catalog" element={<CatalogPage/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/logout" element={<Logout/>}/>
+                    <Route path="/flowers/create" element={<CreateItem />}/>
                 </Routes>
                 <Footer/>
             </Fragment>
