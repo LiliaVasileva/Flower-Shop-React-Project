@@ -11,6 +11,7 @@ import Header from "./components/header/Header";
 import Contacts from "./components/contacts/Contacts";
 import CatalogPage from "./components/catalog/CatalogPage";
 import Register from "./components/register/Register";
+import Logout from "./components/logout/Logout";
 import {AuthContext} from "./context/authContext";
 
 
@@ -41,9 +42,19 @@ function App() {
         }
     }
 
+    const onLogout = async () => {
+
+        // // TODO server logout also
+        //
+        // await authService.logout()
+
+        setAuth({});
+    }
+
     const context = {
         onLoginSubmit,
         onRegisterSubmit,
+        onLogout,
         userId: auth._id,
         token: auth.token,
         email: auth.userEmail,
@@ -60,6 +71,7 @@ function App() {
                     <Route path="/contacts" element={<Contacts/>}/>
                     <Route path="/catalog" element={<CatalogPage/>}/>
                     <Route path="/register" element={<Register/>}/>
+                    <Route path="/logout" element={<Logout/>}/>
                 </Routes>
                 <Footer/>
             </Fragment>
