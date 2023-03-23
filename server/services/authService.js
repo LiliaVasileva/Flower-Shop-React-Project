@@ -16,8 +16,6 @@ exports.register = async (email, firstName, lastName, password, repeatPassword) 
     }
     // TODO: Check if users exists;
 
-    // const existingUser = await this.findByUsername(username);
-
     const existingUser = await User.findOne({
         $or: [{email}],
     });
@@ -29,6 +27,7 @@ exports.register = async (email, firstName, lastName, password, repeatPassword) 
     //TODO: Validate password:
 
     const hashedPassword = await bcrypt.hash(password, 10);
+
 
     await User.create({email, firstName, lastName, password: hashedPassword});
 
@@ -64,7 +63,7 @@ exports.login = async (email, password) => {
 
     const token = await jwt.sign(payload, SECRET);
 
-    console.log(email)
+
     const data = {
         token: token,
         _id: user._id,

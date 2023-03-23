@@ -7,8 +7,6 @@ import {AuthContext} from "../../context/authContext";
 function Navigation() {
 
     const {isAuthenticated, email} = useContext(AuthContext)
-    console.log(email)
-
 
     return (
         <section id="nav">
