@@ -11,6 +11,7 @@ router.post('/create', isAuth, async (req, res) => {
   const { name, price, category, description, image } = req.body;
 
   const userId = req.user._id;
+  console.log(userId)
 
   try {
 

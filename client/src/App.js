@@ -15,17 +15,22 @@ import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
 import CreateItem from "./components/item-create/CreateItem";
 import {AuthContext} from "./context/authContext";
+import {useCookies} from "react-cookie";
 
 
 function App() {
     const navigate = useNavigate()
     const [auth, setAuth] = useState({})
+    const [cookies, setCookie, removeCookie] = useCookies(['auth'])
+
+
 
     const onLoginSubmit = async (data) => {
 
         try {
             const result = await authService.login(data);
             setAuth(result);
+            setCookie( 'auth', result.token, {path: '/'})
             navigate('/catalog');
 
         } catch (error) {
@@ -46,9 +51,7 @@ function App() {
 
     const onCreateItem = async (values) => {
         try {
-
-            const result = await itemService.create(values, auth.token);
-
+            const result = await itemService.create(values);
             console.log(result)
             navigate('/catalog');
         }catch (error) {
@@ -62,8 +65,8 @@ function App() {
         // // TODO server logout also
         //
         // await authService.logout()
-
         setAuth({});
+        removeCookie('auth', {path: '/'})
     }
 
     const context = {

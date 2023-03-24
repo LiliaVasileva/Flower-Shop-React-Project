@@ -1,35 +1,55 @@
+import jwtDecode from 'jwt-decode'
 const request = async (method, url, data) => {
-    const options = {};
+    try {
+        const token = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('auth='))?.split('=')[1];
+        console.log(token)
 
-    if (method !== 'GET') {
-        options.method = method;
+        const auth = token || '{}';
 
-        if (data) {
-            options.headers = {
-                'content-type': 'application/json',
-            };
+        const user = jwtDecode(token);
 
-            options.body = JSON.stringify(data);
+        console.log(user)
+
+        let headers = {}
+
+        if (auth) {
+            headers['X-Authorization'] = auth;
         }
+
+        let buildRequest;
+
+        if (method === 'GET') {
+            buildRequest = fetch(url, {headers});
+        } else {
+            buildRequest = fetch(url, {
+                    method,
+                    headers: {
+                        ...headers,
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                    cookies: {
+                        'auth': 'this is a test',
+                    },
+                }
+            );
+        }
+        const response = await buildRequest;
+
+        console.log(response);
+
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        console.log(error);
     }
-
-    const response = await fetch(url, options);
-
-    if (response.status === '204') {
-        return {}
-    }
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw result
-    }
-
-    return result
 };
 
-export const get = request.bind(null, 'GET');
-export const post = request.bind(null, 'POST');
-export const put = request.bind(null, 'PUT');
-export const patch = request.bind(null, 'PATCH');
-export const del = request.bind(null, 'DELETE');
+export const get = request.bind({}, 'GET');
+export const post = request.bind({}, 'POST');
+export const patch = request.bind({}, 'PATCH');
+export const put = request.bind({}, 'PUT');
+export const del = request.bind({}, 'DELETE')
