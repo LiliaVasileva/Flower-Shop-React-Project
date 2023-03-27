@@ -42,6 +42,7 @@ function App() {
         try {
             const result = await authService.register(values);
             setAuth(result);
+            setCookie( 'auth', result.token, {path: '/'})
             navigate('/catalog');
 
         }catch (error) {
@@ -62,11 +63,14 @@ function App() {
 
     const onLogout = async () => {
 
-        // // TODO server logout also
-        //
-        // await authService.logout()
-        setAuth({});
-        removeCookie('auth', {path: '/'})
+        try {
+            await authService.logout()
+            setAuth({});
+            removeCookie('auth', {path: '/'})
+        } catch (error){
+            console.log(error);
+        }
+
     }
 
     const context = {

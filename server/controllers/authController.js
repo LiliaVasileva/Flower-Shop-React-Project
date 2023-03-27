@@ -40,9 +40,13 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/logout', isAuth, (req, res) => {
-
-    res.clearCookie('auth');
-    console.log(res.status)
+    try {
+        delete req.user
+        res.clearCookie('auth');
+        return res.status(200).json('You have successfully logout!')
+    }catch(error){
+        console.log(error)
+    }
 
 });
 
