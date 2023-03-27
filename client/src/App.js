@@ -1,4 +1,4 @@
-import {Fragment, useState} from "react";
+import {Fragment, useState, useEffect} from "react";
 import {Route, Routes, useNavigate} from "react-router-dom";
 
 
@@ -23,6 +23,14 @@ function App() {
     const [auth, setAuth] = useState({})
     const [cookies, setCookie, removeCookie] = useCookies(['auth']);
     const [items, setItems]  = useState([]);
+
+    useEffect(() => {
+        itemService.getAll()
+            .then(result => {
+                console.log(result)
+                setItems(result)
+            })
+    }, []);
 
 
 
@@ -94,7 +102,7 @@ function App() {
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/contacts" element={<Contacts/>}/>
-                    <Route path="/catalog" element={<CatalogPage flowers ={items}/>}/>
+                    <Route path="/catalog" element={<CatalogPage flowers={items}/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/flowers/create" element={<CreateItem />}/>

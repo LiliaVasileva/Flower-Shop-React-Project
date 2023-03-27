@@ -29,5 +29,20 @@ router.post('/create', isAuth, async (req, res) => {
 });
 
 
+router.get('/items', async (req, res) => {
+
+  try {
+    const items = await itemService.getAll()
+    console.log(items)
+    return res.status(200).json(items)
+
+  } catch (error) {
+    console.log(error)
+    return res
+      .status(404)
+      .json({ error: getErrorMessage(error) });
+  }
+});
+
 
 module.exports = router;
