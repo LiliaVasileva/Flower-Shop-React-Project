@@ -2,9 +2,9 @@
 
 import ItemsConteiner from "../items-conteiner/ItemsConteiner";
 
-function CatalogPage (){
+function CatalogPage ({flowers}){
     return (
-            <ItemsConteiner />
+            <ItemsConteiner  items={flowers}/>
     )
 }
 

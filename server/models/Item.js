@@ -22,8 +22,8 @@ const itemSchema = new mongoose.Schema({
         required: [true, 'Please add a description!']
     },
     image: {
-        data: Buffer,
-        contentType: String,
+        type: String,
+        required: [true, 'Please add Image Url!']
     },
     owner: {
         type: mongoose.Types.ObjectId,

@@ -31,7 +31,7 @@ function CreateItem() {
                 </select>
                 <input type="text" id="description" name="description" className="description"
                        placeholder="Описание на продукта..." onChange={changeHandler}/>
-                <input type="file" id="image" name="image" className="image" placeholder="Качи снимка..."
+                <input type="text" id="image" name="image" className="image" placeholder="Линк към снимка ..."
                        onChange={changeHandler}/>
                 <input type="submit" className="submit" name="submit" value="Създай"/>
             </form>

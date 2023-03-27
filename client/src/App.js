@@ -21,7 +21,8 @@ import {useCookies} from "react-cookie";
 function App() {
     const navigate = useNavigate()
     const [auth, setAuth] = useState({})
-    const [cookies, setCookie, removeCookie] = useCookies(['auth'])
+    const [cookies, setCookie, removeCookie] = useCookies(['auth']);
+    const [items, setItems]  = useState([]);
 
 
 
@@ -52,8 +53,9 @@ function App() {
 
     const onCreateItem = async (values) => {
         try {
-            const result = await itemService.create(values);
-            console.log(result)
+
+            const item = await itemService.create(values);
+            setItems(state => [...state, item]);
             navigate('/catalog');
         }catch (error) {
             console.log(error);
@@ -92,7 +94,7 @@ function App() {
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/contacts" element={<Contacts/>}/>
-                    <Route path="/catalog" element={<CatalogPage/>}/>
+                    <Route path="/catalog" element={<CatalogPage flowers ={items}/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/flowers/create" element={<CreateItem />}/>

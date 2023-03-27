@@ -1,11 +1,16 @@
 import Item from "../item/Item";
-import {Fragment} from "react";
+import {Fragment, useState} from "react";
 
-
-function ItemsConteiner () {
+function ItemsConteiner ({items}) {
+    
     return(
         <Fragment>
-            <Item/>
+            {items.map(x =>
+                <Item key={x._id} {...x} />
+            )}
+            {items.length === 0 && (
+                <h3 className="no-articles">No flowers yet!</h3>
+            )}
         </Fragment>
 
     )
