@@ -10,15 +10,19 @@ function Catalog() {
         <section id="gallery" className="section">
             <div className="gallery-articles">
                 <article className="gallery__article">
-                    <h2>Сватба</h2>
-                    <img src={weddingPicture} alt=""/>
+                    <Link to="/catalog">
+                        <h2>Сватба</h2>
+                        <img src={weddingPicture} alt=""/>
+                    </Link>
                 </article>
                 <article className="gallery__article">
-                    <h2>Асортимент</h2>
-                    <img src={assortment} alt=""/>
+                    <Link to="/catalog">
+                        <h2>Асортимент</h2>
+                        <img src={assortment} alt=""/>
+                    </Link>
                 </article>
                 <article className="gallery__article">
-                    <Link to="catalog/funeral-items">
+                    <Link to="/catalog">
                         <h2>Погребения</h2>
                         <img src={funeral} alt=""/>
                     </Link>
