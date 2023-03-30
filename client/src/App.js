@@ -27,11 +27,9 @@ function App() {
     useEffect(() => {
         itemService.getAll()
             .then(result => {
-                console.log(result)
                 setItems(result)
             })
     }, []);
-
 
 
     const onLoginSubmit = async (data) => {
