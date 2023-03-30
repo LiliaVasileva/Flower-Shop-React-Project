@@ -1,10 +1,16 @@
+import {Fragment} from "react";
+import Item from "../item/Item";
 
-
-import ItemsConteiner from "../items-conteiner/ItemsConteiner";
-
-function CatalogPage ({flowers}){
+function CatalogPage({flowers}) {
     return (
-            <ItemsConteiner  items={flowers}/>
+        <section id="items">
+            {flowers.map(x =>
+                <Item key={x._id} {...x} />
+            )}
+            {flowers.length === 0 && (
+                <h3 className="no-articles">No flowers yet!</h3>
+            )}
+        </section>
     )
 }
 
