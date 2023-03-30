@@ -389,10 +389,6 @@ img.logo {
     text-decoration: none;
 }
 
-#items .article-content .card-category:hover {
-    color: #a8a893;
-}
-
 #items .article-content .card-title {
     font-weight: lighter;
     margin: 1rem;
