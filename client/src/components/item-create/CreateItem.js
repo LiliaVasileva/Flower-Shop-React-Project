@@ -23,7 +23,7 @@ function CreateItem() {
                        onChange={changeHandler}/>
                 <input id="price" name="price" className="price" placeholder="Въведи цена" onChange={changeHandler}/>
                 <select id="category" name="category" className="category" value={values.category} onChange={changeHandler}>
-                    {/*<option value="default" selected disabled hidden>Избери Категория</option>*/}
+                    <option value="default" selected disabled hidden>Избери Категория</option>
                     <option value="wedding">Сватба</option>
                     <option value="funeral">Погребения</option>
                     <option value="assortment">Асортимент</option>
