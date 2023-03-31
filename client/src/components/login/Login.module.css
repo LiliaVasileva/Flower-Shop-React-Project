@@ -1,5 +1,6 @@
+/* Login */
 
-#login {
+.login {
     background-color: var(--clr-light-grey);
     height: 80vh;
     display: flex;
@@ -10,11 +11,11 @@
 
 }
 
-#login .image__container .image {
+.imageContainer img{
     height: 80vh;
 }
 
-#login .login__form .email {
+.loginEmail {
     display: block;
     width: 50vh;
     margin: 1rem;
@@ -22,7 +23,7 @@
     border: 1px solid black;
 }
 
-#login .login__form .password {
+.loginPassword {
     display: block;
     width: 50vh;
     margin: 1rem;
@@ -30,26 +31,27 @@
     border: 1px solid black;
 }
 
-#login .login__form .submit {
+.loginSubmit {
     display: block;
     width: 50vh;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
     background-color: var(--clr-dark-green);
     border: 1px solid black;
-    margin-bottom: 0;
+    margin: 1rem 1rem 0;
     font-weight: lighter;
 
 }
 
-#login .login__form h3 {
+.loginSubmit:hover {
+    cursor: pointer;
+}
+
+.loginForm h3 {
     font-weight: lighter;
     font-size: 1.5rem;
     text-align: center;
 }
 
-#login .login__form h5 {
+.loginForm h5 {
     font-weight: lighter;
     text-align: center;
     margin-top: 0;
