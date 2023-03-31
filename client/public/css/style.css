@@ -242,61 +242,6 @@ body {
 
 
 
-#items .catalog-filter{
-    display: block;
-}
-
-
-
-#items .article-card {
-    background-color: var(--clr-white);
-    transition: 0.3s;
-    padding: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-
-
-}
-
-#items .article-card:hover {
-    box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0.2);
-    cursor: pointer;
-}
-
-#items .article-content {
-    padding: 2rem;
-}
-
-#items .article-content .card-category {
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: lighter;
-    color: #58584c;
-    display: block;
-    text-decoration: none;
-}
-
-#items .article-content .card-title {
-    font-weight: lighter;
-    margin: 1rem;
-
-}
-
-#items .article-image {
-    margin: 0;
-    padding: 0;
-    width: 12rem;
-    height: 15rem;
-    object-fit: contain;
-    overflow: hidden;
-}
-
-#items .article-image img {
-    max-width: 100%;
-    height: auto;
-}
-
-
 
 /* Navigation */
 

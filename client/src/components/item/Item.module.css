@@ -1,0 +1,47 @@
+/* Item */
+
+.articleCard {
+    background-color: var(--clr-white);
+    transition: 0.3s;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.articleCard:hover {
+    box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0.2);
+    cursor: pointer;
+}
+
+.articleContent {
+    padding: 2rem;
+}
+
+.cardCategory {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #58584c;
+    display: block;
+    text-decoration: none;
+}
+
+.cardTitle {
+    font-weight: lighter;
+    margin: 1rem;
+
+}
+
+.articleImage {
+    margin: 0;
+    padding: 0;
+    width: 12rem;
+    height: 15rem;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.articleImage img {
+    max-width: 100%;
+    height: auto;
+}
