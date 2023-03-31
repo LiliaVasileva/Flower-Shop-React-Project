@@ -1,0 +1,60 @@
+
+
+/*History*/
+
+.history {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 50%;
+}
+
+.image img {
+    object-fit: cover;
+    height: 60%;
+    width: 70%;
+    margin-top: 3rem;
+    margin-right: 0;
+    text-align: center;
+    padding-left: 40px;
+}
+
+.info {
+    padding: 40px 10px 40px 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.infoTitle {
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.infoDescription {
+    font-size: 30px;
+    margin-bottom: 40px;
+    font-weight: lighter;
+}
+
+
+.infoItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.infoItemsList{
+    list-style: none;
+}
+
