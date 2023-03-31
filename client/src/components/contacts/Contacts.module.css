@@ -1,0 +1,106 @@
+/*Contacts Page*/
+.contacts {
+    margin-left: 6px;
+    margin-right: 6px;
+    background-color: var(--clr-white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+}
+
+.contactImage {
+    width: 50%;
+    padding: 1rem;
+
+}
+
+.contactImage img {
+    height: 100%;
+    width: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.textContactInfo {
+    padding-left: 2rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.addressInfo {
+    list-style: none;
+}
+
+.addressInfo li {
+    padding: 0.5rem;
+}
+
+.directionButton {
+    text-decoration: none;
+    padding: 0.5rem;
+    border: 1px solid var(--clr-light-green);
+    color: black;
+}
+
+.directionButton:hover {
+    background-color: var(--clr-dark-green);
+    color: var(--clr-white);
+}
+
+.contactFormContainer {
+    background-color: var(--clr-light-green);
+    border-bottom: 2px solid #dadbd6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    height: 70vh;
+}
+
+.contactForm {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.fullname {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    border: none;
+}
+
+.email {
+    grid-column: 3 / 4;
+    grid-row: 1;
+    border: none;
+}
+
+.message {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+    height: 5rem;
+    border: none;
+}
+
+.submitContactButton {
+    grid-column: 1 / 4;
+    grid-row: 5;
+    padding: 0.5rem;
+    border: 1px solid var(--clr-light-green);
+    color: white;
+    background-color: var(--clr-dark-green);
+}
+
+.submitContactButton:hover {
+    background-color: var(--clr-white);
+    color: black;
+}
