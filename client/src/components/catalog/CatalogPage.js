@@ -1,6 +1,8 @@
 import Item from "../item/Item";
 import {Fragment, useState} from "react";
 
+import styles from "./CatalogPage.module.css"
+
 function CatalogPage({flowers}) {
     const [selected, setSelected] = useState("")
 
@@ -17,9 +19,9 @@ function CatalogPage({flowers}) {
 
     return (
         <Fragment>
-            <section id="filter">
-                <div id="catalog-filter">
-                    <select className="select" name="filter" value={selected} onChange={onSelectHandler}
+            <section className={styles.catalogFilter}>
+                <div>
+                    <select className={styles.select} name="filter" value={selected} onChange={onSelectHandler}
                             placeholder="Избери Категория">
                         <option value="" disabled hidden>Избери Категория</option>
                         <option value={categoryFilterValues.Wedding}>Сватба</option>
@@ -29,14 +31,14 @@ function CatalogPage({flowers}) {
                     </select>
                 </div>
             </section>
-            <section id="items">
-                {selected ? flowers.filter(x => x.category == selected)
+            <section className={styles.items}>
+                {selected ? flowers.filter(x => x.category === selected)
                     .map(x => <Item key={x._id} {...x} />) : flowers.map(
                     x => <Item key={x._id} {...x} />
                 )}
 
                 {flowers.length === 0 && (
-                    <h3 className="no-articles">No flowers yet!</h3>
+                    <h3 className={styles.noArticles}>No flowers yet!</h3>
                 )}
             </section>
         </Fragment>

@@ -1,0 +1,34 @@
+/*Filter*/
+
+.catalogFilter {
+    height: auto;
+    background-color: var(--clr-white);
+    position: sticky;
+    top: 4em;
+    margin-bottom: 12px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 8px;
+    z-index: 100;
+}
+
+.select {
+    background-color: var(--clr-white);
+    border: none;
+    padding-left: 40px;
+    text-align: center;
+
+
+}
+
+.filter .noArticles {
+    text-align: center;
+    margin: 5rem;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+    gap: 2rem;
+    margin: 6px;
+}
