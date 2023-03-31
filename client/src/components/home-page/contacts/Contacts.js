@@ -1,36 +1,38 @@
+
+import styles from "./Contacts.module.css"
 import workingHours from "../images/we_are_open.jpg";
 
 function Contacts() {
     return (
-        <section id="contact" className="section">
-            <div className="info">
-                <h2 className="info__title">Работно време</h2>
-                <ul className="info__items" role="list">
-                    <li className="info__items__li ">
+        <section id="contact" className={styles.contact}>
+            <div className={styles.info}>
+                <h2 className={styles.infoTitle}>Работно време</h2>
+                <ul className={styles.infoItems}>
+                    <li>
                         Понеделник - 8 - 17 ч.
                     </li>
-                    <li className="info__items__li ">
+                    <li >
                         Вторник - 8 - 17 ч.
                     </li>
-                    <li className="info__items__li ">
+                    <li >
                         Сряда - 8 - 17 ч.
                     </li>
-                    <li className="info__items__li ">
+                    <li >
                         Четвъртък - 8 - 17 ч.
                     </li>
-                    <li className="info__items__li ">
+                    <li >
                         Петък - 8 - 17 ч.
                     </li>
-                    <li className="info__items__li ">
+                    <li >
                         Събота - 8 - 17 ч.
                     </li>
-                    <li className="info__items__li ">
+                    <li >
                         Неделя - 8 - 13 ч.
                     </li>
                 </ul>
             </div>
-            <div className="image">
-                <img src={workingHours} alt=""/>
+            <div className={styles.image}>
+                <img src={workingHours} alt="Working hours sign"/>
             </div>
         </section>
     )

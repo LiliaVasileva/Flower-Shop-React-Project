@@ -1,0 +1,68 @@
+
+.section {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 15px;
+    height: 70vh;
+    background-color: var(--clr-white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+/* Contact */
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+    background-color: var(--clr-white);
+}
+
+
+.infoTitle {
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+#contact .info .info__desc {
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: lighter;
+}
+
+.image {
+    width: 50%;
+    padding: 40px;
+}
+
+.image img {
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+    margin-top: 3rem;
+
+}
+
+.info {
+    padding: 40px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.infoItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 15px;
+    font-weight: lighter;
+    margin: 2rem;
+    list-style: none;
+}
+
+
