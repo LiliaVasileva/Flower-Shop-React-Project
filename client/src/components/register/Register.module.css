@@ -1,0 +1,78 @@
+
+/* Register */
+
+
+.register {
+    background-color: var(--clr-light-grey);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.register h2 {
+    margin-bottom: 2rem;
+}
+
+.imageContainer img {
+    height: 30vh;
+}
+
+.registerForm h5 {
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.registerEmail {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+
+.registerPassword {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+
+.registerFirstName {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+
+.registerLastName {
+    display: block;
+    width: 50vh;
+    margin: 1rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid black;
+}
+
+.registerSubmit {
+    display: block;
+    width: 50vh;
+    background-color: var(--clr-dark-green);
+    border: 1px solid black;
+    margin: 1rem 1rem 0;
+    font-weight: lighter;
+
+}
+
+.registerSubmit:hover {
+    cursor: pointer;
+}
+
+

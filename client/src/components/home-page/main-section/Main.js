@@ -1,4 +1,4 @@
-import mainPicture from "../images/main_picture.jpg";
+import mainPicture from "../images/main-photo.png"
 import React from "react";
 
 function Main() {
@@ -7,7 +7,7 @@ function Main() {
             <img src={mainPicture} alt="" className="main-img"/>
             <section className="info">
                 <h1 className="info__title">Цветарски магазин с традиции</h1>
-                <h2 className="info__desc">Повече от 40 годишен опит в аранжирането и озеляването.</h2>
+                <h2 className="info__desc">Повече от 40 годишен опит <p>в аранжирането и озеляването.</p></h2>
             </section>
         </header>
     )
