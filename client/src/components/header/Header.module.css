@@ -1,0 +1,42 @@
+/* Header */
+
+.header {
+    height: 12vh;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 6px;
+    background-color: var(--clr-white);
+    -webkit-box-shadow: -30px -25px 54px -45px rgba(0, 0, 0, 0.41);
+    -moz-box-shadow: -30px -25px 54px -45px rgba(0, 0, 0, 0.41);
+    box-shadow: -30px -25px 54px -45px rgba(0, 0, 0, 0.41);
+
+}
+
+.headerLogo {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.logoInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.logoImg {
+    height: auto;
+    max-height: 10vh;
+    margin-top: 1rem;
+}
+
+.headerTitle {
+    font-weight: lighter;
+    font-size: 2rem;
+    color: black;
+}
