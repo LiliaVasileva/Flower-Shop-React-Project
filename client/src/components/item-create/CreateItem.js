@@ -1,19 +1,15 @@
-import {useContext} from "react";
-
-import {AuthContext} from "../../context/authContext";
 import {useForm} from "../../hooks/useForm";
 import styles from "./CreateItem.module.css"
 
-function CreateItem() {
-    const {onCreateItem} = useContext(AuthContext);
+function CreateItem(props) {
 
     const {values, changeHandler, onSubmit} = useForm({
         name: '',
         price: '',
-        category: 'wedding',
+        category: '',
         description: '',
         image: ''
-    }, onCreateItem);
+    }, props.onCreate);
 
     return (
         <div className={styles.create} id="create">
@@ -24,7 +20,7 @@ function CreateItem() {
                        onChange={changeHandler}/>
                 <input id="price" name="price" className={styles.price} placeholder="Въведи цена" onChange={changeHandler}/>
                 <select id="category" name="category" className={styles.category} value={values.category} onChange={changeHandler}>
-                    <option value="default" selected disabled hidden>Избери Категория</option>
+                    <option value="" disabled>Избери Категория</option>
                     <option value="wedding">Сватба</option>
                     <option value="funeral">Погребения</option>
                     <option value="assortment">Асортимент</option>
