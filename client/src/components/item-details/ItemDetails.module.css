@@ -1,0 +1,42 @@
+
+
+.itemDetailContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 75vh;
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 50vh;
+    border-color: var(--clr-light-grey);
+
+}
+
+.itemImageContainer {
+    width: 50%;
+}
+
+.itemImageContainer img{
+    max-height: 420px;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+    padding-left: 4rem;
+
+}
+
+.detailsInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 15px;
+    font-weight: lighter;
+    margin-right: 2rem;
+}

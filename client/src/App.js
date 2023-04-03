@@ -14,6 +14,7 @@ import CatalogPage from "./components/catalog/CatalogPage";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
 import CreateItem from "./components/item-create/CreateItem";
+import ItemDetails from "./components/item-details/ItemDetails";
 
 
 
@@ -56,6 +57,7 @@ function App() {
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/flowers/create" element={<CreateItem onCreate={onCreateItem}/>}/>
+                    <Route path="/details" element={<ItemDetails/>}/>
                 </Routes>
                 <Footer/>
             </Fragment>

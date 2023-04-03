@@ -103,4 +103,5 @@
 .submitContactButton:hover {
     background-color: var(--clr-white);
     color: black;
+    cursor: pointer;
 }

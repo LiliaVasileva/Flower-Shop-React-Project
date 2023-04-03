@@ -1,13 +1,12 @@
-import {useContext} from "react"
 import {Link} from "react-router-dom";
 
 import salvia from "../footer/images/salvia.png"
-import {AuthContext} from "../../context/authContext";
+import {useAuthContext} from "../../context/authContext";
 import {useForm} from "../../hooks/useForm";
 import styles from './Login.module.css'
 
 function Login() {
-    const {onLoginSubmit} = useContext(AuthContext);
+    const {onLoginSubmit} = useAuthContext();
 
     const {values, changeHandler, onSubmit} = useForm({
         email: '',

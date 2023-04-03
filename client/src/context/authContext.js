@@ -1,4 +1,4 @@
-import {createContext, useState} from "react";
+import {createContext, useContext, useState} from "react";
 import * as authService from "../services/authService";
 import {useNavigate} from "react-router-dom";
 import {useCookies} from "react-cookie";
@@ -66,4 +66,10 @@ export const AuthProvider = ({children,}) => {
         </AuthContext.Provider>
     )
 
+}
+
+export const useAuthContext = () => {
+    const context = useContext(AuthContext);
+
+    return context;
 }
