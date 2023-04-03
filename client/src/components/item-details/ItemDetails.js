@@ -3,6 +3,45 @@ import styles from "./ItemDetails.module.css"
 
 
 function ItemDetails () {
+
+    const { userId } = useContext(AuthContext);
+    const [username, setUsername] = useState('');
+    const [comment, setComment] = useState('');
+    const { gameId } = useParams();
+    const [game, setGame] = useState({});
+    const gameService = useService(gameServiceFactory)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        itemService.getOne(itemId)
+            .then(result => {
+                setGame(result);
+            })
+    }, [itemId]);
+
+    // // const onCommentSubmit = async (e) => {
+    // //     e.preventDefault();
+
+    // //     const result = await gameService.addComment(gameId, {
+    // //         username,
+    // //         comment,
+    // //     });
+
+    //     setGame(state => ({ ...state, comments: { ...state.comments, [result._id]: result } }));
+    //     setUsername('');
+    //     setComment('');
+    // };
+
+    const isOwner = item._ownerId === userId;
+
+    const onDeleteClick = async () => {
+        await itemService.delete(item._id);
+
+        // TODO: delete from state
+
+        navigate('/catalog');
+    };
+
     return (
         <div className={styles.itemDetailContainer}>
                 <div className={styles.itemImageContainer}>

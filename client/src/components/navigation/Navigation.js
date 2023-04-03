@@ -31,7 +31,7 @@ function Navigation() {
             </div>
             <div className={styles.logo}>
                 {!isAuthenticated ?
-                <h4>Салвия</h4>
+                <h4>Начало</h4>
                 : <h4>Здравей, {email}</h4>}
 
                 <Link to="/"><img alt="Salvia-png" className={styles.logoImg} src={salvia}/></Link>

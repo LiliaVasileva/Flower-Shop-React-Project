@@ -1,3 +1,6 @@
+
+
+import {Link} from "react-router-dom"
 import styles from "./Item.module.css"
 
 function Item({_id, name, price, category, image}) {
@@ -17,7 +20,8 @@ function Item({_id, name, price, category, image}) {
                 <div className={styles.articleContent}>
                     <h2 className={styles.cardCategory}>{categoryValues[category]}</h2>
                     <h3 className={styles.cardTitle}>{name}</h3>
-                    <h3 className={styles.cardTitle}>Цена: {price} лв</h3>
+                    <h3 className ={styles.cardTitle}>Цена: {price} лв</h3>
+                    <button><Link to={`/catalog/item/${_id}}`}>Детайли</Link></button>
                 </div>
             </article>)
 }
