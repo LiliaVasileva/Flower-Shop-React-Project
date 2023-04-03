@@ -1,12 +1,12 @@
 import styles from "./ItemDetails.module.css"
-import itemImage from "./images/IMG_20211104_111319.jpg"
+
 
 
 function ItemDetails () {
     return (
         <div className={styles.itemDetailContainer}>
                 <div className={styles.itemImageContainer}>
-                    <img src={itemImage} alt="Item"/>
+                    <img alt="Item"/>
                 </div>
                 <div className={styles.detailsInfo}>
                     <h2>Венец с бели хризантеми</h2>
