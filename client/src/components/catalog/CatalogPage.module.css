@@ -29,6 +29,6 @@
 .items {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-    gap: 2rem;
+    gap: 0.5rem;
     margin: 6px;
 }

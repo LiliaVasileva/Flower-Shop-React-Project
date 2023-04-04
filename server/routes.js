@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 router.use(authController);
-router.use('/item',itemsController);
+router.use(itemsController);
 
 
 module.exports = router;

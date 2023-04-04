@@ -1,23 +1,30 @@
+import {useEffect, useContext, useState} from "react";
+import {Link, useNavigate, useParams} from "react-router-dom";
+
+
+import * as itemService from "../../services/itemService"
+import {AuthContext} from "../../context/authContext";
 import styles from "./ItemDetails.module.css"
 
 
-
-function ItemDetails () {
-
-    const { userId } = useContext(AuthContext);
-    const [username, setUsername] = useState('');
-    const [comment, setComment] = useState('');
-    const { gameId } = useParams();
-    const [game, setGame] = useState({});
-    const gameService = useService(gameServiceFactory)
+function ItemDetails() {
+    const {userId} = useContext(AuthContext);
+    // const [username, setUsername] = useState('');
+    // const [comment, setComment] = useState('');
+    const {itemId} = useParams();
+    const [item, setItem] = useState({});
     const navigate = useNavigate();
+
+    console.log(`ItemIdPrams  = ${itemId} ---- itemId = ${item._id}`)
 
     useEffect(() => {
         itemService.getOne(itemId)
             .then(result => {
-                setGame(result);
+                console.log(result)
+                setItem(result);
             })
     }, [itemId]);
+
 
     // // const onCommentSubmit = async (e) => {
     // //     e.preventDefault();
@@ -35,35 +42,42 @@ function ItemDetails () {
     const isOwner = item._ownerId === userId;
 
     const onDeleteClick = async () => {
-        await itemService.delete(item._id);
+        await itemService.deleteItem(item._id);
 
         // TODO: delete from state
 
         navigate('/catalog');
     };
 
+    const categoryValues = {
+        "funeral": "Погребения",
+        "wedding": "Сватба",
+        "assortment": "Асортимент",
+        "other": "Други"
+    }
+
     return (
         <div className={styles.itemDetailContainer}>
-                <div className={styles.itemImageContainer}>
-                    <img alt="Item"/>
-                </div>
-                <div className={styles.detailsInfo}>
-                    <h2>Венец с бели хризантеми</h2>
-                    <h3>Погребения</h3>
-                    <p>45 лв.</p>
-                    <p>
-                        he original words and form of a written or printed work.
-                        (2) : an edited or emended copy of
-                        an original work.
-                        a work containing such text.
-                        the main body of printed or written matter on a page.
-                    </p>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
+            <div className={styles.itemImageContainer}>
+                <img src={item.image} alt="Item"/>
+            </div>
+            <div className={styles.detailsInfo}>
+                <h2 className={styles.itemTitle}>{item.name}</h2>
+                <h3 className={styles.itemCategory}>{categoryValues[item.category]}</h3>
+                <p className={styles.itemPrice}>{item.price} лв.</p>
+                <p className={styles.itemDescription}>
+                    {item.description}
+                </p>
+                {isOwner && (
+                    <div className={styles.actionButtons}>
+                        <button><Link className={styles.actionButtonLink} to={`/catalog/${item._id}/edit`}>Edit</Link>
+                        </button>
+                        <button onClick={onDeleteClick}>Delete</button>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
-
 
 export default ItemDetails;

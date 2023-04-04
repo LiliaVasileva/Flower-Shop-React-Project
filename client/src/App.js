@@ -57,7 +57,7 @@ function App() {
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/flowers/create" element={<CreateItem onCreate={onCreateItem}/>}/>
-                    <Route path="/details" element={<ItemDetails/>}/>
+                    <Route path='/catalog/item/:itemId/details' element={<ItemDetails/>} />
                 </Routes>
                 <Footer/>
             </Fragment>

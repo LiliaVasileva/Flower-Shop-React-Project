@@ -21,7 +21,7 @@ function Item({_id, name, price, category, image}) {
                     <h2 className={styles.cardCategory}>{categoryValues[category]}</h2>
                     <h3 className={styles.cardTitle}>{name}</h3>
                     <h3 className ={styles.cardTitle}>Цена: {price} лв</h3>
-                    <button><Link to={`/catalog/item/${_id}}`}>Детайли</Link></button>
+                    <button><Link to={`/catalog/item/${_id}/details`}>Детайли</Link></button>
                 </div>
             </article>)
 }
