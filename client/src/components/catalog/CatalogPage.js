@@ -12,7 +12,7 @@ function CatalogPage() {
         "Funeral": "funeral",
         "Wedding": "wedding",
         "Assortment": "assortment",
-        "Other": "other"
+        "All": ""
     };
 
     function onSelectHandler(e) {
@@ -29,7 +29,7 @@ function CatalogPage() {
                         <option value={categoryFilterValues.Wedding}>Сватба</option>
                         <option value={categoryFilterValues.Funeral}>Погребения</option>
                         <option value={categoryFilterValues.Assortment}>Асортимент</option>
-                        <option value={categoryFilterValues.Other}>Други</option>
+                        <option value={categoryFilterValues.All}>Всички</option>
                     </select>
                 </div>
             </section>

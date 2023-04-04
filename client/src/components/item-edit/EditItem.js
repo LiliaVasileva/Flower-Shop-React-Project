@@ -19,8 +19,7 @@ function EditItem() {
     }, [])
 
 
-
-    const onSubmit = (e) => {
+    const onEdit = (e) => {
         e.preventDefault();
         const itemData = Object.fromEntries(new FormData(e.target));
         itemService.edit(itemId, itemData)
@@ -33,7 +32,7 @@ function EditItem() {
     return (
         <div className={styles.edit} id="edit">
             <h2 className={styles.label}>Създай Нов Асортимент</h2>
-            <form method="POST" onSubmit={onSubmit} id="edit__form" className={styles.editForm}
+            <form method="POST" onSubmit={onEdit} id="edit__form" className={styles.editForm}
                   encType="multipart/form-data">
                 <input type="text" id="name" name="name" className={styles.name} defaultValue={currentItem.name}/>
                 <input id="price" name="price" className={styles.price} defaultValue={currentItem.price}/>

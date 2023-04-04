@@ -1,5 +1,4 @@
 const Item = require('../models/Item');
-const User = require('../models/User');
 
 
 exports.getAll = () => Item.find({}).lean();

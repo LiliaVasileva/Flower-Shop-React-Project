@@ -1,7 +1,6 @@
 import {createContext, useContext, useEffect, useState} from "react";
-import * as authService from "../services/authService";
 import {useNavigate} from "react-router-dom";
-import {useCookies} from "react-cookie";
+
 import * as itemService from "../services/itemService";
 
 
