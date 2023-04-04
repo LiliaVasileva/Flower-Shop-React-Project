@@ -1,14 +1,17 @@
-import {useEffect, useContext, useState} from "react";
+import {useEffect, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
 
 
 import * as itemService from "../../services/itemService"
-import {AuthContext} from "../../context/authContext";
 import styles from "./ItemDetails.module.css"
+import { useItemContext } from "../../context/itemContext";
+import {useAuthContext} from "../../context/authContext";
+
 
 
 function ItemDetails() {
-    const {userId, editItemsState } = useContext(AuthContext);
+    const {userId} = useAuthContext();
+    const { deleteItemState}  = useItemContext();
     // const [username, setUsername] = useState('');
     // const [comment, setComment] = useState('');
     const {itemId} = useParams();
@@ -37,15 +40,18 @@ function ItemDetails() {
     // };
 
     const isOwner = item.owner === userId;
-
-    const onDeleteClick = async () => {
+    
+    const onDeleteClick = () => {
         const confirmation  = window.confirm("Сигурни ли сте, че искате да изтриете този асортимент?");
 
         if(confirmation) {
             const itemId = item._id
-            await itemService.deleteItem(itemId)
-            editItemsState(itemId, {})
-            navigate("/catalog")
+            itemService.deleteItem(itemId).then(
+                () => {
+                    deleteItemState(itemId)
+                    navigate("/catalog")
+                }
+            )
 
         }
     };

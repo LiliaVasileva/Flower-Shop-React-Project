@@ -84,14 +84,16 @@ router.get('/items/:itemId', async (req, res) => {
 })
 
 
-router.get('/items/:itemId/delete', isAuth, async (req, res) => {
+router.delete('/items/:itemId/delete', isAuth, async (req, res) => {
+
   try {
 
     await itemService.delete(req.params.itemId);
 
-    return res.status(200)
+    return res.status(200).json("Successfully deleted")
 
   } catch (error) {
+    console.log(getErrorMessage(error))
     res.status(404).json(getErrorMessage(error));
   }
 });

@@ -27,6 +27,15 @@ export const ItemProvider = ({children,}) => {
         }
     }
 
+    const deleteItemState = async (itemId) => {
+        try{
+            const newItems = items.filter(x => x._id !== itemId);
+            setItems(newItems)
+        }catch (err){
+            console.log(err)
+        }
+    }
+
     const onCreateItem = async (values) => {
         try {
             const item = await itemService.create(values);
@@ -41,6 +50,7 @@ export const ItemProvider = ({children,}) => {
     const context = {
         onCreateItem,
         editItemsState,
+        deleteItemState,
         items,
         setItems
     }

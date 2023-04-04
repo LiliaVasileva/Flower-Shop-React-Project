@@ -26,19 +26,13 @@ const request = async (method, url, data) => {
                         ...headers,
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(data),
-                    cookies: {
-                        'auth': 'this is a test',
-                    },
+                    body: JSON.stringify(data)
                 }
             );
         }
         const response = await buildRequest;
 
-        console.log(response)
-
         const result = await response.json();
-        console.log(result)
 
         return result;
     } catch (error) {

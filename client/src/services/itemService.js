@@ -5,7 +5,8 @@ const baseUrl = 'http://localhost:8001';
 
 export const create = (createData, token) => request.post(`${baseUrl}/item/create`, createData, token);
 export const edit = (itemId, itemData) => request.post(`${baseUrl}/items/${itemId}/edit`, itemData);
-export  const deleteItem = (itemId) => request.get(`${baseUrl}/items/${itemId}/delete`);
+
+export  const deleteItem = (itemId) => request.del(`${baseUrl}/items/${itemId}/delete`);
 
 export const getAll = async () => {
 
