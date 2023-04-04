@@ -57,7 +57,7 @@
     border: 1px solid var(--clr-light-green);
     color: white;
     background-color: var(--clr-dark-green);
-    width: 4rem;
+    width: 6rem;
 }
 
 .actionButtons button:hover {

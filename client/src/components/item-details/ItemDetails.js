@@ -70,9 +70,9 @@ function ItemDetails() {
                 </p>
                 {isOwner && (
                     <div className={styles.actionButtons}>
-                        <button><Link className={styles.actionButtonLink} to={`/catalog/${item._id}/edit`}>Edit</Link>
+                        <button><Link className={styles.actionButtonLink} to={`/catalog/${item._id}/edit`}>Коригирай</Link>
                         </button>
-                        <button onClick={onDeleteClick}>Delete</button>
+                        <button onClick={onDeleteClick}>Изтрий</button>
                     </div>
                 )}
             </div>
