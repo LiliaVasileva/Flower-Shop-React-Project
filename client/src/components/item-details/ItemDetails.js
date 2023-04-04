@@ -15,12 +15,9 @@ function ItemDetails() {
     const [item, setItem] = useState({});
     const navigate = useNavigate();
 
-    console.log(`ItemIdPrams  = ${itemId} ---- itemId = ${item._id}`)
-
     useEffect(() => {
         itemService.getOne(itemId)
             .then(result => {
-                console.log(result)
                 setItem(result);
             })
     }, [itemId]);

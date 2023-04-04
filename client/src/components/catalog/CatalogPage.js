@@ -2,8 +2,10 @@ import Item from "../item/Item";
 import {Fragment, useState} from "react";
 
 import styles from "./CatalogPage.module.css"
+import {useItemContext} from "../../context/itemContext";
 
-function CatalogPage({flowers}) {
+function CatalogPage() {
+    const {items} = useItemContext()
     const [selected, setSelected] = useState("")
 
     const categoryFilterValues = {
@@ -32,12 +34,12 @@ function CatalogPage({flowers}) {
                 </div>
             </section>
             <section className={styles.items}>
-                {selected ? flowers.filter(x => x.category === selected)
-                    .map(x => <Item key={x._id} {...x} />) : flowers.map(
+                {selected ? items.filter(x => x.category === selected)
+                    .map(x => <Item key={x._id} {...x} />) : items.map(
                     x => <Item key={x._id} {...x} />
                 )}
 
-                {flowers.length === 0 && (
+                {items.length === 0 && (
                     <h3 className={styles.noArticles}>No flowers yet!</h3>
                 )}
             </section>

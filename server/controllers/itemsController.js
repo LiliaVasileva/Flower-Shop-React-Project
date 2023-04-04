@@ -43,11 +43,13 @@ router.post('/items/:itemId/edit', isAuth, async (req, res) => {
             description,
             image,
         });
-        console.log(item)
-        return res.status(200).json(item)
+
+        const newItem = await itemService.getItem(itemId);
+
+        return res.status(200).json(newItem);
 
     } catch (error) {
-        console.log(error.message)
+
         return res
             .status(404)
             .json({error: getErrorMessage(error)});
@@ -72,10 +74,8 @@ router.get('/items', async (req, res) => {
 
 router.get('/items/:itemId', async (req, res) => {
 
-
     try {
         const item = await itemService.getItem(req.params.itemId);
-
         return res.status(200).json(item);
     } catch (err) {
         return res.status(404).json({err: getErrorMessage(err)});

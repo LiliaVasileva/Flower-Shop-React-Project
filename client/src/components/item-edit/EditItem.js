@@ -1,13 +1,15 @@
-import {useContext, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
 import styles from "./itemEdit.module.css"
 import * as itemService from "../../services/itemService";
+import {useItemContext} from "../../context/itemContext";
 
-function EditItem(props) {
+function EditItem() {
     const [currentItem, setCurrentItem] = useState({});
     const {itemId} = useParams();
     const navigate = useNavigate();
+    const { editItemsState } = useItemContext()
 
     useEffect(() => {
         itemService.getOne(itemId)
@@ -16,14 +18,14 @@ function EditItem(props) {
             })
     }, [])
 
+
+
     const onSubmit = (e) => {
         e.preventDefault();
         const itemData = Object.fromEntries(new FormData(e.target));
-
         itemService.edit(itemId, itemData)
             .then(result => {
-                // TODO update state
-                console.log(result)
+                editItemsState(itemId, result)
                 navigate(`/catalog/${itemId}/details`)
             });
     }

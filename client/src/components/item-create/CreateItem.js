@@ -1,7 +1,10 @@
 import {useForm} from "../../hooks/useForm";
 import styles from "./CreateItem.module.css"
+import {useItemContext} from "../../context/itemContext";
 
-function CreateItem(props) {
+function CreateItem() {
+
+    const {onCreateItem} = useItemContext()
 
     const {values, changeHandler, onSubmit} = useForm({
         name: '',
@@ -9,7 +12,7 @@ function CreateItem(props) {
         category: '',
         description: '',
         image: ''
-    }, props.onCreate);
+    }, onCreateItem);
 
     return (
         <div className={styles.create} id="create">

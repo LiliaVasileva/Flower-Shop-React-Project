@@ -4,13 +4,10 @@ const request = async (method, url, data) => {
         const token = document.cookie
             .split('; ')
             .find((row) => row.startsWith('auth='))?.split('=')[1];
-        console.log(token)
 
         const auth = token || '{}';
 
         const user = jwtDecode(token);
-
-        console.log(user)
 
         let headers = {}
 
@@ -37,8 +34,6 @@ const request = async (method, url, data) => {
             );
         }
         const response = await buildRequest;
-
-        console.log(response);
 
         const result = await response.json();
 
