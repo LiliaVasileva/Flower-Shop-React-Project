@@ -12,3 +12,4 @@ exports.create = async (ownerId, {name, price, category, description, image}) =>
 }
 exports.edit = (itemId, {name, price, category, description, image}) => Item.findByIdAndUpdate(itemId, {name, price, category, description, image}, {runValidators: true});
 
+exports.delete = (itemId) => Item.findByIdAndDelete(itemId);

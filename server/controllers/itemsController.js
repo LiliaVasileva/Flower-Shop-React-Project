@@ -84,4 +84,16 @@ router.get('/items/:itemId', async (req, res) => {
 })
 
 
+router.get('/items/:itemId/delete', isAuth, async (req, res) => {
+  try {
+
+    await itemService.delete(req.params.itemId);
+
+    return res.status(200)
+
+  } catch (error) {
+    res.status(404).json(getErrorMessage(error));
+  }
+});
+
 module.exports = router;

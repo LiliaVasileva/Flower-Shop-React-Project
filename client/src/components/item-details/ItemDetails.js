@@ -8,7 +8,7 @@ import styles from "./ItemDetails.module.css"
 
 
 function ItemDetails() {
-    const {userId} = useContext(AuthContext);
+    const {userId, editItemsState } = useContext(AuthContext);
     // const [username, setUsername] = useState('');
     // const [comment, setComment] = useState('');
     const {itemId} = useParams();
@@ -39,11 +39,15 @@ function ItemDetails() {
     const isOwner = item.owner === userId;
 
     const onDeleteClick = async () => {
-        await itemService.deleteItem(item._id);
+        const confirmation  = window.confirm("Сигурни ли сте, че искате да изтриете този асортимент?");
 
-        // TODO: delete from state
+        if(confirmation) {
+            const itemId = item._id
+            await itemService.deleteItem(itemId)
+            editItemsState(itemId, {})
+            navigate("/catalog")
 
-        navigate('/catalog');
+        }
     };
 
     const categoryValues = {
