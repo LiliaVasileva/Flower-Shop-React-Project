@@ -39,7 +39,7 @@ function ItemDetails() {
     //     setComment('');
     // };
 
-    const isOwner = item._ownerId === userId;
+    const isOwner = item.owner === userId;
 
     const onDeleteClick = async () => {
         await itemService.deleteItem(item._id);

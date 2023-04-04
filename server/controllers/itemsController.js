@@ -29,6 +29,33 @@ router.post('/item/create', isAuth, async (req, res) => {
 });
 
 
+router.post('/items/:itemId/edit', isAuth, async (req, res) => {
+
+    const {name, price, category, description, image} = req.body;
+
+    const itemId = req.params.itemId;
+
+    try {
+        const item = await itemService.edit(itemId, {
+            name,
+            price,
+            category,
+            description,
+            image,
+        });
+        console.log(item)
+        return res.status(200).json(item)
+
+    } catch (error) {
+        console.log(error.message)
+        return res
+            .status(404)
+            .json({error: getErrorMessage(error)});
+    }
+}
+)
+
+
 router.get('/items', async (req, res) => {
 
     try {
@@ -45,11 +72,10 @@ router.get('/items', async (req, res) => {
 
 router.get('/items/:itemId', async (req, res) => {
 
-    console.log(req.params.itemId)
 
     try {
         const item = await itemService.getItem(req.params.itemId);
-        console.log(item)
+
         return res.status(200).json(item);
     } catch (err) {
         return res.status(404).json({err: getErrorMessage(err)});
