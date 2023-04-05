@@ -52,7 +52,6 @@ export const AuthProvider = ({children,}) => {
 
     }
 
-
     const context = {
         onLoginSubmit,
         onRegisterSubmit,
