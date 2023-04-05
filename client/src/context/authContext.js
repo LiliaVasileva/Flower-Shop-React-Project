@@ -20,6 +20,7 @@ export const AuthProvider = ({children,}) => {
             await authService.logout()
             setAuth({});
             removeCookie('auth', {path: '/'})
+            localStorage.removeItem("auth")
         } catch (error) {
             console.log(error);
         }

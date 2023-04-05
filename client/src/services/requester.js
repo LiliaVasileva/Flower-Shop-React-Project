@@ -5,7 +5,7 @@ const request = async (method, url, data) => {
             .split('; ')
             .find((row) => row.startsWith('auth='))?.split('=')[1];
 
-        const auth = token || '{}';
+        const auth = token || {};
 
         const user = jwtDecode(token);
 

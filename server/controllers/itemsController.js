@@ -22,6 +22,7 @@ router.post('/item/create', isAuth, async (req, res) => {
         return res.status(200).json(item)
 
     } catch (error) {
+        console.log(getErrorMessage(error))
         return res
             .status(404)
             .json({error: getErrorMessage(error)});
