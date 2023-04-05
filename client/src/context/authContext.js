@@ -3,13 +3,15 @@ import * as authService from "../services/authService";
 import {useNavigate} from "react-router-dom";
 import {useCookies} from "react-cookie";
 
+import {useLocalStorage} from "../hooks/useLocalStorage";
+
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children,}) => {
 
     const navigate = useNavigate()
-    const [auth, setAuth] = useState({})
+    const [auth, setAuth] = useLocalStorage("auth", {});
     const [cookies, setCookie, removeCookie] = useCookies(['auth']);
 
     const onLogout = async () => {
