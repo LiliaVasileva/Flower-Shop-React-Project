@@ -22,6 +22,7 @@ function ItemDetails() {
     const [comments, setComments] = useState([])
     const navigate = useNavigate();
 
+
     useEffect(() => {
         itemService.getOne(itemId)
             .then(result => {
@@ -37,15 +38,16 @@ function ItemDetails() {
                 username,
                 comment,
             })
+
             setItem(state => ({...state, comments: {...state.commentList, username: username, comment: comment}}));
-            setComments([...comments, comment])
+            setComments([...comments, {userId: userId, username: username, comment: comment}])
             setComment('');
         } catch (err) {
             console.log(err)
         }
     };
+
     const changeHandler = (e) => {
-        setUsername(username);
         setComment(e.target.value);
     };
 
@@ -100,7 +102,7 @@ function ItemDetails() {
             <div className={styles.comments}>
                 {!isOwner && isAuthenticated && (
                     <form method="POST" onSubmit={onCommentSubmit}>
-                        <input onChange={changeHandler} value={comment} className={styles.inputTextField} type="text"
+                        <input onChange={changeHandler} value={comment} name="comment" className={styles.inputTextField} type="text"
                                placeholder="Споделете вашата оценка..."/>
                         <input type="submit" className={styles.formSubmit} name="submit" value="Изпрати"/>
                     </form>
