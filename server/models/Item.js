@@ -25,6 +25,18 @@ const itemSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please add Image Url!']
     },
+    commentList: [{
+        userId: {
+            type: mongoose.Types.ObjectId,
+            ref: 'User',
+        },
+        username:{
+            type: String
+        },
+        comment: {
+            type: String,
+        }
+    }],
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'User'

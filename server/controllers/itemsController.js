@@ -77,8 +77,12 @@ router.get('/items/:itemId', async (req, res) => {
 
     try {
         const item = await itemService.getItem(req.params.itemId);
-        return res.status(200).json(item);
+
+        const comments = await itemService.getAllComments(req.params.itemId);
+
+        return res.status(200).json({item, comments});
     } catch (err) {
+        console.log(getErrorMessage(err))
         return res.status(404).json({err: getErrorMessage(err)});
     }
 
@@ -98,5 +102,24 @@ router.delete('/items/:itemId/delete', isAuth, async (req, res) => {
     res.status(404).json(getErrorMessage(error));
   }
 });
+
+
+router.post('/items/:itemId/comment', isAuth, async (req, res) => {
+
+  const { comment, username } = req.body;
+
+  try{
+      await itemService.comment(req.user._id, req.params.itemId, comment, username);
+
+      return res.status(200).json(comment)
+
+  }catch (err){
+      res.status(404).json(getErrorMessage(err))
+  }
+
+
+
+});
+
 
 module.exports = router;

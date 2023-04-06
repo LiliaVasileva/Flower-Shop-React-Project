@@ -7,7 +7,6 @@ exports.authentication = async (req, res, next) => {
 
     const token = req.headers['x-authorization'];
 
-
     if (token) {
         try {
             const decodedToken = await jwt.verify(token, SECRET);
@@ -27,7 +26,6 @@ exports.authentication = async (req, res, next) => {
 
 exports.isAuth = (req, res, next) => {
     if (!req.user) {
-        console.log("There is no user")
         return "There is no user"
     }
     next()
