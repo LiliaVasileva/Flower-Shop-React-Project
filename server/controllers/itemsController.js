@@ -106,19 +106,32 @@ router.delete('/items/:itemId/delete', isAuth, async (req, res) => {
 
 router.post('/items/:itemId/comment', isAuth, async (req, res) => {
 
-  const { comment, username } = req.body;
+    const { comment, username } = req.body;
+  
+    try{
+        await itemService.comment(req.user._id, req.params.itemId, comment, username);
+  
+        return res.status(200).json(comment)
+  
+    }catch (err){
+        res.status(404).json(getErrorMessage(err))
+    }
+  
+  });
 
-  try{
-      await itemService.comment(req.user._id, req.params.itemId, comment, username);
 
-      return res.status(200).json(comment)
+router.get('/items/:userId/comments', isAuth, async (req, res) => {
+    const userId = req.params.userId;
 
-  }catch (err){
-      res.status(404).json(getErrorMessage(err))
-  }
+    try {
+        const userComments = await itemService.getUserComments(userId);
+        console.log(userComments)
+        return res.status(200).json(userComments)
 
-
-
+    } catch (err) {
+        console.log(err)
+        res.status(404).json(getErrorMessage(err))
+    }
 });
 
 

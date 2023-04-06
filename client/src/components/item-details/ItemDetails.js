@@ -20,7 +20,14 @@ function ItemDetails() {
     const {itemId} = useParams();
     const [item, setItem] = useState({});
     const [comments, setComments] = useState([])
+    const isOwner = item.owner === userId;
     const navigate = useNavigate();
+    const categoryValues = {
+        "funeral": "Погребения",
+        "wedding": "Сватба",
+        "assortment": "Асортимент",
+        "other": "Други"
+    }
 
 
     useEffect(() => {
@@ -31,6 +38,7 @@ function ItemDetails() {
             })
     }, [itemId]);
 
+
     const onCommentSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -38,8 +46,6 @@ function ItemDetails() {
                 username,
                 comment,
             })
-
-            setItem(state => ({...state, comments: {...state.commentList, username: username, comment: comment}}));
             setComments([...comments, {userId: userId, username: username, comment: comment}])
             setComment('');
         } catch (err) {
@@ -51,7 +57,6 @@ function ItemDetails() {
         setComment(e.target.value);
     };
 
-    const isOwner = item.owner === userId;
 
     const onDeleteClick = () => {
         const confirmation = window.confirm("Сигурни ли сте, че искате да изтриете този асортимент?");
@@ -68,12 +73,6 @@ function ItemDetails() {
         }
     };
 
-    const categoryValues = {
-        "funeral": "Погребения",
-        "wedding": "Сватба",
-        "assortment": "Асортимент",
-        "other": "Други"
-    }
 
     return (
         <div className={styles.container}>
@@ -113,7 +112,7 @@ function ItemDetails() {
                 </div>)}
 
                 {comments && comments.map(x => (
-                    <div key={comments[x]} className={styles.comment}>
+                    <div key={comments.indexOf(x)} className={styles.comment}>
                         <div><img alt="Salvia-png" className={styles.logoImg} src={salvia}/></div>
                         <div><p>{x.username}:</p></div>
                         <div><p> {x.comment}</p></div>

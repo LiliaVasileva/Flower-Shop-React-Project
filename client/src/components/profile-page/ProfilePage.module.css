@@ -57,3 +57,8 @@
     align-items: center;
     width: 100%;
 }
+
+.logoImg {
+    height: auto;
+    max-height: 7vh;
+}

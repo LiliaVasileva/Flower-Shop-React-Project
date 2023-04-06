@@ -31,3 +31,10 @@ exports.getAllComments = async(itemId) => {
 
     return item.commentList
 }
+
+
+exports.getUserComments = async(userId) => {
+    const comments = Item.find({ "commentList": { $elemMatch: { userId: userId } } }).lean()
+
+    return comments
+}
