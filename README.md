@@ -24,6 +24,10 @@ and one section with contact form, which sends emails via nodemailer and nodemai
 currently my mailgun account is blocked, so until they fixed it this functionality does not work;
 
 - Footer Component;
+* Footer Component is inherited on every page of the API, it is static component does not have any state or receive any data
+it has Links Components routing to different pages of the API;
+
+
 - Header Components;
 - HomePage Components -> Catalog Component, Contacts Component, History Component, Main Component;
 - Item Component -> Item Details Component, Item Create Component, Item Edit Component; Delete Functionality is
