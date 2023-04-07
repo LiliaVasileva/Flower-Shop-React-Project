@@ -22,7 +22,7 @@ router.post('/item/create', isAuth, async (req, res) => {
         return res.status(200).json(item)
 
     } catch (error) {
-        console.log(getErrorMessage(error))
+
         return res
             .status(404)
             .json({error: getErrorMessage(error)});
@@ -82,7 +82,7 @@ router.get('/items/:itemId', async (req, res) => {
 
         return res.status(200).json({item, comments});
     } catch (err) {
-        console.log(getErrorMessage(err))
+
         return res.status(404).json({err: getErrorMessage(err)});
     }
 
@@ -98,8 +98,8 @@ router.delete('/items/:itemId/delete', isAuth, async (req, res) => {
     return res.status(200).json("Successfully deleted")
 
   } catch (error) {
-    console.log(getErrorMessage(error))
-    res.status(404).json(getErrorMessage(error));
+
+    res.status(404).json({err: getErrorMessage(err)});
   }
 });
 
@@ -114,7 +114,7 @@ router.post('/items/:itemId/comment', isAuth, async (req, res) => {
         return res.status(200).json(comment)
   
     }catch (err){
-        res.status(404).json(getErrorMessage(err))
+        res.status(404).json({err: getErrorMessage(err)})
     }
   
   });
@@ -125,12 +125,12 @@ router.get('/items/:userId/comments', isAuth, async (req, res) => {
 
     try {
         const userComments = await itemService.getUserComments(userId);
-        console.log(userComments)
+
         return res.status(200).json(userComments)
 
     } catch (err) {
-        console.log(err)
-        res.status(404).json(getErrorMessage(err))
+
+        res.status(404).json({err: getErrorMessage(err)})
     }
 });
 

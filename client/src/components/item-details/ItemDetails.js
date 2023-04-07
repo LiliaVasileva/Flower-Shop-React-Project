@@ -8,7 +8,7 @@ import {useItemContext} from "../../context/itemContext";
 import {useAuthContext} from "../../context/authContext";
 import salvia from "../profile-page/images/logo-leaf.png";
 import {useUserContext} from "../../context/userContext";
-import {addComment} from "../../services/itemService";
+
 
 
 function ItemDetails() {

@@ -1,9 +1,32 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
+import {useForm} from "../../hooks/useForm";
+import * as emailService from "../../services/emailService"
 import styles from "./Contacts.module.css"
 import shop from "./images/The-Flower-Shop-Bruton-Jo.jpg"
 
 function Contacts() {
+
+    const navigate = useNavigate()
+
+    const onContactSubmit = async (values) => {
+        try {
+            console.log(values)
+            await emailService.sendEmail(values);
+            navigate('/contacts');
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const {values, changeHandler, onSubmit} = useForm({
+        fullName: '',
+        email: '',
+        emailContent: '',
+
+    }, onContactSubmit);
+
     return (
         <section id="contacts" className={styles.contacts}>
             <div className={styles.contactInfo}>
@@ -33,10 +56,12 @@ function Contacts() {
                 <p> Може да ни потърсите на телефоните оставени за контакт или да ни изпратите мейл.</p>
                 <p> Ще се радваме да обсъдим вашите предложения! </p>
 
-                <form className={styles.contactForm}>
-                    <input name="fullname" className={styles.fullname} placeholder="Име и Фамилия..."/>
-                    <input className={styles.email} placeholder="Вашия мейл..."/>
-                    <input className={styles.message} placeholder="Вашето съобщение..."   type="text"/>
+                <form className={styles.contactForm} onSubmit={onSubmit}>
+                    <input value={values.fullName} name="fullName" onChange={changeHandler} className={styles.fullname}
+                           placeholder="Име и Фамилия..."/>
+                    <input value={values.email} name="email" className={styles.email} onChange={changeHandler} placeholder="Вашия мейл..."/>
+                    <input value={values.emailContent} name="emailContent" onChange={changeHandler} className={styles.message}
+                           placeholder="Вашето съобщение..." type="text"/>
                     <input type="submit" className={styles.submitContactButton} name="submit" value="Изпрати"/>
                 </form>
             </div>

@@ -58,7 +58,35 @@
     width: 100%;
 }
 
+
 .logoImg {
     height: auto;
     max-height: 7vh;
+}
+
+.buttonDetails {
+    padding: 0.5rem;
+    border: 1px solid var(--clr-light-green);
+    color: black;
+    background-color: var(--clr-white);
+    width: 6rem;
+
+}
+.comment div:last-of-type{
+    margin-left: auto;
+}
+
+.buttonDetails:hover {
+    background-color: var(--clr-dark-green);
+    color: white;
+    cursor: pointer;
+}
+
+.buttonDetailsLink{
+    text-decoration: none;
+    color: black;
+}
+
+.buttonDetailsLink:hover{
+    color: white;
 }
