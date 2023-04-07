@@ -33,8 +33,17 @@ it has Link Component to implemented to the img logo to navigate to homepage;
 
 
 - HomePage Components -> Catalog Component, Contacts Component, History Component, Main Component;
+* HomePage is page with multiple components, all components are static, there is no state to be sent to children of the components
+it includes only links to navigate through the API;
+
 - Item Component -> Item Details Component, Item Create Component, Item Edit Component; Delete Functionality is
 handled with a window confirmation pop up, there was no component created for it;
+* Item is a complex functionality which includes all CRUD operations, there is a detail page where ig the user is owner
+should see Edit and Delete buttons, if the user is not owner but he/she is authenticated should be able to add comments
+to the specific item. Item Components are using ItemContextProvider to send context data through the different components;
+Edit and Create Item Components are using useForm hook to manage all form data to be sent to the service via fetch API and
+in order for the state to be updated.
+
 - Login Component;
 - Register Component;
 - Logout was handled only with a Handler function, no component created for logout;
