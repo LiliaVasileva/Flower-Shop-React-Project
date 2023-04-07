@@ -72,6 +72,11 @@ so in order to extract only the user comment a nested for-loop over the object c
 For better performance probably is better to change the Model interface inside the service and to create additional model only 
 for comments with many-to-many relationship with Item and User Model. This way it will be easier to extract only the current user comments.
 
+#Context overview ->
 
+The API contains three main context providers -> authContext, itemContext and userContext;
+
+*authContext contains the following handlers ->  onLoginSubmit, onRegisterSubmit, onLogout;
+it provided access through the whole API to information about the current userId, token, email and if the user isAuthenticated;
 
 
