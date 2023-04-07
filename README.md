@@ -51,9 +51,26 @@ Login Component is using useForm hook to manage all form data to be sent to the 
 in order for the state to be updated.
 
 - Register Component;
+Register Components are using AuthContextProvider to extract context data for the user and to send information on login to the
+auth context and to set localstorage data and cookies data.
+Register Component is using useForm hook to manage all form data to be sent to the server via fetch API and
+in order for the state to be updated. When user submit a register form and if the data is valid he/she are logged in.
+
 - Logout was handled only with a Handler function, no component created for logout;
+
+
+
 - Navigation Component;
-- User Profile Page Component;
+Navigation Component navigate with React Link Components through different components of the API;
+
+- User Profile Page Component is the most complex component in the whole API; It uses all context providers(authContextProvider, itemContextProvider, UserContext) to 
+extract needed data for the use of the UI and UX of the page. The profile component has three main categories shown, data for the current
+logged-in user, data for all items created by the user and data for all comment created by the user.
+To extract all comments by created by the user, a fetch api was sent to the service to respond with all items which contains
+user comments, the problem is that the request is returning only the items with all additional comments, not only the user comments,
+so in order to extract only the user comment a nested for-loop over the object commentList property was created.
+For better performance probably is better to change the Model interface inside the service and to create additional model only 
+for comments with many-to-many relationship with Item and User Model. This way it will be easier to extract only the current user comments.
 
 
 
