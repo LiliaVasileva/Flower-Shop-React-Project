@@ -77,6 +77,9 @@ for comments with many-to-many relationship with Item and User Model. This way i
 The API contains three main context providers -> authContext, itemContext and userContext;
 
 *authContext contains the following handlers ->  onLoginSubmit, onRegisterSubmit, onLogout;
-it provided access through the whole API to information about the current userId, token, email and if the user isAuthenticated;
+it provides access through the whole API to information about the current userId, token, email and if the user isAuthenticated;
 
+*itemContext contains the following handlers ->  onCreateItem, editItemsState, deleteItemState;
+it provides access through the whole API to information about the items state and how to setItems;
 
+*userContext -> provides access through the whole API to information about the user and userComments;
