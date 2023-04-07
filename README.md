@@ -25,10 +25,13 @@ currently my mailgun account is blocked, so until they fixed it this functionali
 
 - Footer Component;
 * Footer Component is inherited on every page of the API, it is static component does not have any state or receive any data
-it has Links Components routing to different pages of the API;
-
+it has Links Components to covet the routing to different pages of the API;
 
 - Header Components;
+* Header Component is inherited on every page of the API, it is static component does not have any state or receive any data
+it has Link Component to implemented to the img logo to navigate to homepage;
+
+
 - HomePage Components -> Catalog Component, Contacts Component, History Component, Main Component;
 - Item Component -> Item Details Component, Item Create Component, Item Edit Component; Delete Functionality is
 handled with a window confirmation pop up, there was no component created for it;
