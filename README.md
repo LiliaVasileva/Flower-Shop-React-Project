@@ -13,7 +13,7 @@ Every page is separated by multiple components.
 For sending request to the server is used fetch api.
 The context is managed by providers who give access to every component to the state and other useful hooks.
 
-#Components overview ->
+# Components overview ->
 - Catalog Component -> Catalog Component contains all Item Components rendered with map() function; All details were send via props to the Item Component;
 
 - Contacts Component -> Contact Component contains two main sections, one section showing contact information 
@@ -57,7 +57,7 @@ so in order to extract only the user comment a nested for-loop over the object c
 For better performance probably is better to change the Model interface inside the service and to create additional model only 
 for comments with many-to-many relationship with Item and User Model. This way it will be easier to extract only the current user comments.
 
-#Context overview ->
+# Context overview ->
 
 The API contains three main context providers -> authContext, itemContext and userContext;
 
@@ -70,7 +70,7 @@ it provides access through the whole API to information about the items state an
 *userContext -> provides access through the whole API to information about the user and userComments;
 
 
-#Hooks -> 
+# Hooks -> 
 
 In the API are used two main hooks, one to manage form data and one to manage LocalStorage data;
 
@@ -78,12 +78,13 @@ In the API are used two main hooks, one to manage form data and one to manage Lo
 
 *localStorage hook accepts key and defaultValue which will be set to localStorage in the browser the function return value and a setValue function, which are stored on the localStorage in the browser, if there is any localStorage values stored on the browser it will return the data if there is none it will return an empty object {} and a setter function;
 
-#Utils ->
+# Utils ->
 
 There is one util function created to which check in the localStorage if there is item with key === "auth" and return the 
 token if the user is logged in if not, return empty object {}
 
 
-# Services -> there are authService , emailService, ItemService, requester, userService created for the API,
+# Services -> 
+there are authService , emailService, ItemService, requester, userService created for the API,
 they all send a request and receive a response data through a fetch api to the server on the 
 baseUrl = 'http://localhost:8001';
