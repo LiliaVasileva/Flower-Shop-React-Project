@@ -1,4 +1,3 @@
-import jwtDecode from 'jwt-decode'
 const request = async (method, url, data) => {
     try {
         const token = document.cookie
@@ -6,8 +5,6 @@ const request = async (method, url, data) => {
             .find((row) => row.startsWith('auth='))?.split('=')[1];
 
         const auth = token || {};
-
-        const user = jwtDecode(token);
 
         let headers = {}
 

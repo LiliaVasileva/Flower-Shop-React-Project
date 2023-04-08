@@ -1,7 +1,6 @@
-import {React, useState} from "react";
+import {React} from "react";
 import Item from "../item/Item";
 
-import {useAuthContext} from "../../context/authContext";
 import {useUserContext} from "../../context/userContext";
 import {useItemContext} from "../../context/itemContext";
 
@@ -9,11 +8,12 @@ import {useItemContext} from "../../context/itemContext";
 import styles from "./ProfilePage.module.css"
 import salvia from "./images/logo-leaf.png";
 import {Link} from "react-router-dom";
+import { useAuthContext } from "../../context/authContext";
 
 
 function ProfilePage() {
     const {items} = useItemContext();
-    const {userId, userEmail} = useAuthContext();
+    const {userId} = useAuthContext()
     const {user, userComments} = useUserContext();
 
     let comments = []
@@ -27,12 +27,6 @@ function ProfilePage() {
         }
     }
 
-    const categoryValues = {
-        "funeral": "Погребения",
-        "wedding": "Сватба",
-        "assortment": "Асортимент",
-        "other": "Други"
-    }
 
     return (
         <div className={styles.profile}>

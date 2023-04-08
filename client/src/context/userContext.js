@@ -8,14 +8,15 @@ export const UserContext = createContext();
 
 export const UserProvider = ({children,}) => {
 
-    const {userId} = useAuthContext()
+    const {userId} = useAuthContext();
     const [user, setUser] = useState({});
-    const [userComments, setUserComments] = useState([])
+    const [userComments, setUserComments] = useState([]);
+
 
     useEffect(() => {
         userService.getUser(userId)
             .then(result => {
-                setUser(result)
+                setUser(result);
             })
     }, [userId]);
 
@@ -25,8 +26,6 @@ export const UserProvider = ({children,}) => {
             setUserComments([...userComments, ...result]);
         })
     }, [userId]);
-
-
 
 
     const context = {

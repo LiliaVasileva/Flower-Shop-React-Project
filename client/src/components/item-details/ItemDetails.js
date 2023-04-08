@@ -16,7 +16,7 @@ function ItemDetails() {
     const {userId, isAuthenticated} = useAuthContext();
     const {deleteItemState, itemError, setItemError} = useItemContext();
     const {user} = useUserContext();
-    const [username, setUsername] = useState(`${user.firstName} ${user.lastName}`);
+    const username  = `${user.firstName} ${user.lastName}`;
     const [comment, setComment] = useState('');
     const {itemId} = useParams();
     const [item, setItem] = useState({});

@@ -5,11 +5,20 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/authContext";
 import styles from "./Navigation.module.css"
 import {useUserContext} from "../../context/userContext";
+import ErrorPage from "../error-page/ErrorPage";
 
 function Navigation() {
 
-    const {isAuthenticated, email, userId} = useContext(AuthContext)
+    const {isAuthenticated, userId, userError} = useContext(AuthContext)
     const {user} = useUserContext()
+
+
+    
+
+
+    if(userError){
+        return (<ErrorPage message={userError}/>)
+    }
 
     return (
         <section className={styles.nav}>

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import {useForm} from "../../hooks/useForm";
 import styles from "./CreateItem.module.css"
 import {useItemContext} from "../../context/itemContext";

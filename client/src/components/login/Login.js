@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import { useEffect } from "react";
 
 import salvia from "../footer/images/salvia.png"
 import {useAuthContext} from "../../context/authContext";
@@ -7,11 +6,8 @@ import {useForm} from "../../hooks/useForm";
 import styles from './Login.module.css'
 
 function Login() {
-    const {onLoginSubmit, authError, setAuthError} = useAuthContext();
+    const {onLoginSubmit, authError} = useAuthContext();
 
-    useEffect(()=>{
-        setAuthError('')
-    });
 
     const {values, changeHandler, onSubmit} = useForm({
         email: '',
