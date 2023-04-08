@@ -1,14 +1,18 @@
 import {Link} from "react-router-dom";
-import person from "./images/person-1824147_960_720.webp"
-import {useContext} from "react";
 
-
-import {AuthContext} from "../../context/authContext";
+import {useAuthContext} from "../../context/authContext";
 import {useForm} from "../../hooks/useForm";
+
 import styles from "./Register.module.css"
+import person from "./images/person-1824147_960_720.webp"
+import { useEffect } from "react";
 
 function Register() {
-    const {onRegisterSubmit} = useContext(AuthContext);
+    const {onRegisterSubmit, authError, setAuthError} = useAuthContext()
+
+    useEffect(()=>{
+        setAuthError('')
+    });
 
     const {values, changeHandler, onSubmit} = useForm({
         email: '',
@@ -26,7 +30,9 @@ function Register() {
                 <img alt="Logo" src={person}/>
             </div>
             <div className={styles.registerForm}>
+            
                 <form method="post" onSubmit={onSubmit}>
+                { authError ? <h4 className="error">{authError}</h4> : null}
                     <input name="email" className={styles.registerEmail} id="email" value={values.email}
                            onChange={changeHandler} placeholder="Email..."/>
                     <input name="firstName" className={styles.registerFirstName} id="firstName" value={values.firstName}

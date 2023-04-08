@@ -9,8 +9,8 @@ router.get('/profile/:userId', isAuth, async (req, res) =>{
         const userId = req.params.userId;
         const user = await profileService.getUser(userId);
         return res.status(200).json(user)
-    } catch (err) {
-        return res.status(404).json(getErrorMessage(err))
+    } catch (error) {
+        return res.status(404).json({error: getErrorMessage(error)})
     }
 })
 

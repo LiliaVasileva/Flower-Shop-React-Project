@@ -37,7 +37,6 @@ function ItemDetails() {
                 if(result.comments){
                     setComments([...result.comments])
                 }
-                
             })
     }, [itemId]);
 
