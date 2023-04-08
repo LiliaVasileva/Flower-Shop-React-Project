@@ -4,7 +4,7 @@ import {useItemContext} from "../../context/itemContext";
 
 function CreateItem() {
 
-    const {onCreateItem} = useItemContext()
+    const {onCreateItem, itemError} = useItemContext()
 
     const {values, changeHandler, onSubmit} = useForm({
         name: '',
@@ -17,6 +17,7 @@ function CreateItem() {
     return (
         <div className={styles.create} id="create">
             <h2 className={styles.label}>Създай Нов Асортимент</h2>
+            { itemError ? <h4 className="error">{itemError}</h4> : null}
             <form method="POST" onSubmit={onSubmit} id="create__form" className={styles.createForm}
                   encType="multipart/form-data">
                 <input type="text" id="name" name="name" className={styles.name} placeholder="Въведи име" value={values.name}

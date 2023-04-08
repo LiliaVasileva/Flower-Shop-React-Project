@@ -32,11 +32,20 @@ const request = async (method, url, data) => {
         }
         const response = await buildRequest;
 
+
+
         const result = await response.json();
 
+        if (response.status > 204){
+
+            throw result
+        }
+
         return result;
+
     } catch (error) {
-        console.log(error);
+        
+        throw error
     }
 };
 

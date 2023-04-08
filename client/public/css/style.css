@@ -26,7 +26,11 @@ body {
 
 }
 
-
+.error {
+    margin-bottom: 2rem;
+    font-weight: lighter;
+    color:  #704786;
+}
 
 /* Main */
 #main {

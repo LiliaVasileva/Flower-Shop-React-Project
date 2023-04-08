@@ -9,15 +9,17 @@ function EditItem() {
     const [currentItem, setCurrentItem] = useState({});
     const {itemId} = useParams();
     const navigate = useNavigate();
-    const { editItemsState } = useItemContext()
+    const { editItemsState, itemError, setItemError } = useItemContext()
+
 
     useEffect(() => {
         itemService.getOne(itemId)
-            .then(item => {
-                setCurrentItem(item);
+            .then(result => {
+                setCurrentItem(result.item);
+            }).catch(error => {
+                setItemError(error.error)
             })
-    }, [])
-
+    }, [itemId])
 
     const onEdit = (e) => {
         e.preventDefault();
@@ -25,13 +27,17 @@ function EditItem() {
         itemService.edit(itemId, itemData)
             .then(result => {
                 editItemsState(itemId, result)
+                setItemError('')
                 navigate(`/catalog/${itemId}/details`)
+            }).catch(error => {
+                setItemError(error.error)
             });
     }
 
     return (
         <div className={styles.edit} id="edit">
-            <h2 className={styles.label}>Създай Нов Асортимент</h2>
+            
+            { itemError ? <h4 className="error">{itemError}</h4> : null}
             <form method="POST" onSubmit={onEdit} id="edit__form" className={styles.editForm}
                   encType="multipart/form-data">
                 <input type="text" id="name" name="name" className={styles.name} defaultValue={currentItem.name}/>
