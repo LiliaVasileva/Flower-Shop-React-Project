@@ -83,3 +83,13 @@ it provides access through the whole API to information about the current userId
 it provides access through the whole API to information about the items state and how to setItems;
 
 *userContext -> provides access through the whole API to information about the user and userComments;
+
+
+#Hooks -> 
+
+In the API are used two main hooks, one to manage form data and one to manage LocalStorage data;
+
+*useForm hook accepts initialValues and onSubmitHandler, and returns values,changeHandler and onSubmitHandler;
+
+*Localstorage hook accepts key and defaultValue which will be set to localstorage in the browser the function return value and a setValue function, which are stored on the Localstorage in the browser, if there is any localStorage values stored on the browser it will return the data if there is none it will return an empty object {} and a setter function;
+
