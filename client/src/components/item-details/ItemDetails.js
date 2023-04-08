@@ -40,11 +40,8 @@ function ItemDetails() {
                     setComments([...result.comments])
                 }
             }).catch(error =>{
-
+                setItemError('Този артикул не може да бъде намерен!')
                 console.log(error)
-
-                setItemError('There is no item with the given id. Please try again!')
-
             })
     }, [itemId, itemError]);
 
@@ -85,7 +82,7 @@ function ItemDetails() {
 
 
     if (itemError) {
-        
+
         return <ErrorPage message={itemError}/>
     }
 
