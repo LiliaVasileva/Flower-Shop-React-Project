@@ -91,5 +91,10 @@ In the API are used two main hooks, one to manage form data and one to manage Lo
 
 *useForm hook accepts initialValues and onSubmitHandler, and returns values,changeHandler and onSubmitHandler;
 
-*Localstorage hook accepts key and defaultValue which will be set to localstorage in the browser the function return value and a setValue function, which are stored on the Localstorage in the browser, if there is any localStorage values stored on the browser it will return the data if there is none it will return an empty object {} and a setter function;
+*localStorage hook accepts key and defaultValue which will be set to localStorage in the browser the function return value and a setValue function, which are stored on the localStorage in the browser, if there is any localStorage values stored on the browser it will return the data if there is none it will return an empty object {} and a setter function;
+
+#Utils ->
+
+There is one util function created to which check in the localStorage if there is item with key === "auth" and return the 
+token if the user is logged in if not, return empty object {}
 
