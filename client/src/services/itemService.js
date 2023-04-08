@@ -28,20 +28,29 @@ export const getAll = async () => {
 
 export const getOne = async (itemId) => {
 
+    try{
+
     const response = await fetch(`${baseUrl}/items/${itemId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
         }
     });
+    const result = await response.json()
+    
+    if (response.status > 204){
 
-    let result = response.json()
-
-    if (!response.ok) {
-        throw result;
+        throw result
     }
 
     return result
+
+}catch (error){
+
+    throw error
 }
+
+}
+
 
 

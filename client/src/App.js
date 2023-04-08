@@ -18,6 +18,7 @@ import CreateItem from "./components/item-create/CreateItem";
 import ItemDetails from "./components/item-details/ItemDetails";
 import EditItem from "./components/item-edit/EditItem";
 import ProfilePage from "./components/profile-page/ProfilePage";
+import ErrorPage from "./components/error-page/ErrorPage";
 
 
 
@@ -40,6 +41,7 @@ function App() {
                             <Route path="/flowers/create" element={<CreateItem/>}/>
                             <Route path='/catalog/:itemId/details' element={<ItemDetails/>}/>
                             <Route path="/catalog/:itemId/edit" element={<EditItem/>}/>
+                            <Route path="/*" element={<ErrorPage/>}/>
                         </Routes>
                         <Footer/>
                     </Fragment>

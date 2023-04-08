@@ -8,12 +8,13 @@ import {useItemContext} from "../../context/itemContext";
 import {useAuthContext} from "../../context/authContext";
 import salvia from "../profile-page/images/logo-leaf.png";
 import {useUserContext} from "../../context/userContext";
+import ErrorPage from "../error-page/ErrorPage";
 
 
 
 function ItemDetails() {
     const {userId, isAuthenticated} = useAuthContext();
-    const {deleteItemState} = useItemContext();
+    const {deleteItemState, itemError, setItemError} = useItemContext();
     const {user} = useUserContext();
     const [username, setUsername] = useState(`${user.firstName} ${user.lastName}`);
     const [comment, setComment] = useState('');
@@ -33,12 +34,19 @@ function ItemDetails() {
     useEffect(() => {
         itemService.getOne(itemId)
             .then(result => {
+                setItemError('')
                 setItem(result.item);
                 if(result.comments){
                     setComments([...result.comments])
                 }
+            }).catch(error =>{
+
+                console.log(error)
+
+                setItemError('There is no item with the given id. Please try again!')
+
             })
-    }, [itemId]);
+    }, [itemId, itemError]);
 
 
     const onCommentSubmit = async (e) => {
@@ -76,8 +84,13 @@ function ItemDetails() {
     };
 
 
+    if (itemError) {
+        
+        return <ErrorPage message={itemError}/>
+    }
+
     return (
-        <div className={styles.container}>
+            <div className={styles.container}>
             <div className={styles.itemDetailContainer}>
                 <div className={styles.itemImageContainer}>
                     <img src={item.image} alt="Item"/>
@@ -123,6 +136,7 @@ function ItemDetails() {
             </div>
         </div>
     )
+
 }
 
 export default ItemDetails;
