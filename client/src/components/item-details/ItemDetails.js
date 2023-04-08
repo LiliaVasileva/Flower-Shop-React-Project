@@ -34,7 +34,10 @@ function ItemDetails() {
         itemService.getOne(itemId)
             .then(result => {
                 setItem(result.item);
-                setComments([...result.comments])
+                if(result.comments){
+                    setComments([...result.comments])
+                }
+                
             })
     }, [itemId]);
 

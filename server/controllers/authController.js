@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
 
     } catch (err) {
         return res
-            .status(400).json({error: getErrorMessage(err)});
+            .status(404).json({error: getErrorMessage(err)});
     }
 });
 
@@ -45,7 +45,9 @@ router.get('/logout', isAuth, (req, res) => {
         res.clearCookie('auth');
         return res.status(200).json('You have successfully logout!')
     }catch(error){
-        console.log(error)
+
+        return res.status(404).json({error: getErrorMessage(error)});
+        
     }
 
 });

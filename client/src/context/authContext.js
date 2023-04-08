@@ -13,6 +13,7 @@ export const AuthProvider = ({children,}) => {
     const navigate = useNavigate()
     const [auth, setAuth] = useLocalStorage("auth", {});
     const [cookies, setCookie, removeCookie] = useCookies(['auth']);
+    const [authError, setAuthError] = useState('')
 
     const onLogout = async () => {
 
@@ -21,8 +22,9 @@ export const AuthProvider = ({children,}) => {
             setAuth({});
             removeCookie('auth', {path: '/'})
             localStorage.removeItem("auth")
+            setAuthError('')
         } catch (error) {
-            console.log(error);
+            setAuthError(error.error)
         }
 
     }
@@ -32,10 +34,10 @@ export const AuthProvider = ({children,}) => {
             const result = await authService.register(values);
             setAuth(result);
             setCookie('auth', result.token, {path: '/'})
+            setAuthError('')
             navigate('/catalog');
-
         } catch (error) {
-            console.log(error);
+            setAuthError(error.error)
         }
     }
     const onLoginSubmit = async (data) => {
@@ -45,9 +47,9 @@ export const AuthProvider = ({children,}) => {
             setAuth(result);
             setCookie('auth', result.token, {path: '/'})
             navigate('/catalog');
-
+            setAuthError('')
         } catch (error) {
-            console.log(error)
+            setAuthError(error.error)
         }
 
     }
@@ -60,6 +62,8 @@ export const AuthProvider = ({children,}) => {
         token: auth.token,
         email: auth.userEmail,
         isAuthenticated: !!auth.token,
+        authError,
+        setAuthError,
     }
 
     return (
