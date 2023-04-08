@@ -14,22 +14,15 @@ For sending request to the server is used fetch api.
 The context is managed by providers who give access to every component to the state and other useful hooks.
 
 #Components overview ->
-- Catalog Component:
-* Catalog Component contains all Item Components rendered with map() function; All details were send via props to 
-the Item Component;
+- Catalog Component -> Catalog Component contains all Item Components rendered with map() function; All details were send via props to the Item Component;
 
-- Contacts Component;
-* Contact Component contains two main sections, one section showing contact information 
+- Contacts Component -> Contact Component contains two main sections, one section showing contact information 
 and one section with contact form, which sends emails via nodemailer and nodemailer-mailgun-transport,
 currently my mailgun account is blocked, so until they fixed it this functionality does not work;
 
-- Footer Component;
-* Footer Component is inherited on every page of the API, it is static component does not have any state or receive any data
-it has Links Components to covet the routing to different pages of the API;
+- Footer Component -> Footer Component is inherited on every page of the API, it is static component does not have any state or receive any data it has Links Components to covet the routing to different pages of the API;
 
-- Header Components;
-* Header Component is inherited on every page of the API, it is static component does not have any state or receive any data
-it has Link Component to implemented to the img logo to navigate to homepage;
+- Header Components -> Header Component is inherited on every page of the API, it is static component does not have any state or receive any data it has Link Component to implemented to the img logo to navigate to homepage;
 
 
 - HomePage Components -> Catalog Component, Contacts Component, History Component, Main Component;
@@ -44,15 +37,9 @@ to the specific item. Item Components are using ItemContextProvider to send cont
 Edit and Create Item Components are using useForm hook to manage all form data to be sent to the server via fetch API and
 in order for the state to be updated.
 
-- Login Component;
-Login Components are using AuthContextProvider to extract context data for the user and to send information on login to the
-auth context and to set localstorage data and cookies data.
-Login Component is using useForm hook to manage all form data to be sent to the server via fetch API and
-in order for the state to be updated.
+- Login Component -> Login Components are using AuthContextProvider to extract context data for the user and to send information on login to the auth context and to set localstorage data and cookies data. Login Component is using useForm hook to manage all form data to be sent to the server via fetch API and in order for the state to be updated.
 
-- Register Component;
-Register Components are using AuthContextProvider to extract context data for the user and to send information on login to the
-auth context and to set localstorage data and cookies data.
+- Register Component -> Register Components are using AuthContextProvider to extract context data for the user and to send information on login to the auth context and to set localstorage data and cookies data.
 Register Component is using useForm hook to manage all form data to be sent to the server via fetch API and
 in order for the state to be updated. When user submit a register form and if the data is valid he/she are logged in.
 
@@ -60,11 +47,9 @@ in order for the state to be updated. When user submit a register form and if th
 
 
 
-- Navigation Component;
-Navigation Component navigate with React Link Components through different components of the API;
+- Navigation Component -> Navigation Component navigate with React Link Components through different components of the API;
 
-- User Profile Page Component is the most complex component in the whole API; It uses all context providers(authContextProvider, itemContextProvider, UserContext) to 
-extract needed data for the use of the UI and UX of the page. The profile component has three main categories shown, data for the current
+- User Profile Page Component is the most complex component in the whole API; It uses all context providers(authContextProvider, itemContextProvider, UserContext) to extract needed data for the use of the UI and UX of the page. The profile component has three main categories shown, data for the current
 logged-in user, data for all items created by the user and data for all comment created by the user.
 To extract all comments by created by the user, a fetch api was sent to the service to respond with all items which contains
 user comments, the problem is that the request is returning only the items with all additional comments, not only the user comments,
@@ -98,3 +83,7 @@ In the API are used two main hooks, one to manage form data and one to manage Lo
 There is one util function created to which check in the localStorage if there is item with key === "auth" and return the 
 token if the user is logged in if not, return empty object {}
 
+
+# Services -> there are authService , emailService, ItemService, requester, userService created for the API,
+they all send a request and receive a response data through a fetch api to the server on the 
+baseUrl = 'http://localhost:8001';
