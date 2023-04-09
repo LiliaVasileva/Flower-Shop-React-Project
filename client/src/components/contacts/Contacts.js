@@ -11,7 +11,6 @@ function Contacts() {
 
     const onContactSubmit = async (values) => {
         try {
-            console.log(values)
             await emailService.sendEmail(values);
             navigate('/contacts');
         } catch (error) {

@@ -3,7 +3,7 @@ import * as request from './requester'
 
 const baseUrl = 'http://localhost:8001';
 
-export const create = (createData, token) => request.post(`${baseUrl}/item/create`, createData, token);
+export const create = (createData) => request.post(`${baseUrl}/item/create`, createData);
 
 export const addComment = (itemId, commentData) => request.post(`${baseUrl}/items/${itemId}/comment`, commentData);
 

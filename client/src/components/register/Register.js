@@ -5,14 +5,11 @@ import {useForm} from "../../hooks/useForm";
 
 import styles from "./Register.module.css"
 import person from "./images/person-1824147_960_720.webp"
-import { useEffect } from "react";
+
 
 function Register() {
-    const {onRegisterSubmit, authError, setAuthError} = useAuthContext()
+    const {onRegisterSubmit, authError} = useAuthContext()
 
-    useEffect(()=>{
-        setAuthError('')
-    });
 
     const {values, changeHandler, onSubmit} = useForm({
         email: '',
