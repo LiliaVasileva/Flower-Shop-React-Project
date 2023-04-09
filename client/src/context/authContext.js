@@ -34,9 +34,8 @@ export const AuthProvider = ({children,}) => {
             const result = await authService.register(values);
             setAuth(result);
             setCookie('auth', result.token, {path: '/'})
-            setAuthError('')
-            console.log(authError)
             navigate('/catalog');
+            setAuthError('')
         } catch (error) {
             setAuthError(error.error)
         }
